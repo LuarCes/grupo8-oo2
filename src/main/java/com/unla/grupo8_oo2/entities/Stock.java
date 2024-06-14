@@ -27,6 +27,12 @@ public class Stock {
 	
 	@Column(name="stockCritico")
 	private int descripcion;
+
+	public Stock(Producto producto, int stockActual, int descripcion) {
+		this.producto = producto;
+		this.stockActual = stockActual;
+		this.descripcion = descripcion;
+	}
 	
 	
 }
