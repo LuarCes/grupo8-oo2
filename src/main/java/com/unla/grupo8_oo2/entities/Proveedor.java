@@ -21,7 +21,7 @@ public class Proveedor {
 
 	@Column(name="telefono", unique=true, nullable=false, length=10)
 	private String telefono;
-
+	
 	public Proveedor(String nombre, String telefono) {
 		this.nombre = nombre;
 		this.telefono = telefono;
