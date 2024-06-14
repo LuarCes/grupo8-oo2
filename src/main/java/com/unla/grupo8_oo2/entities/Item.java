@@ -30,6 +30,15 @@ public class Item {
 		this.cantidad = cantidad;
 		this.producto = producto;
 	}
+
+	public Item(int id, String cantidad, Producto producto) {
+		super();
+		this.id = id;
+		this.cantidad = cantidad;
+		this.producto = producto;
+	}
+	
+	
 	
 	
 }

@@ -27,6 +27,11 @@ public class PedidoAprov {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	// normalmente nullable es igual a false, en este caso se deja como true porque el ejemplo es simple
+	@JoinColumn(name="lote_id", nullable=true)
+	private Lote lote;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	// normalmente nullable es igual a false, en este caso se deja como true porque el ejemplo es simple
 	@JoinColumn(name="idProducto", nullable=true) //Revisar
 	private Producto producto;
 	

@@ -10,6 +10,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -19,6 +21,7 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Lote {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +30,6 @@ public class Lote {
 	@Column(name="cantRecibida", unique=false, nullable=false)
 	private int cantRecibida;
 	
-	@Column(name="fechaRecepcion", unique=false, nullable=false)
 	private LocalDate fechaRecepcion;
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="lote") //Revisar
@@ -41,9 +43,24 @@ public class Lote {
 	@JoinColumn(name="idProducto", nullable=true) //Revisar
 	private Producto producto;
 
+	
+	
 	public Lote(int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
 			Producto producto) {
 		super();
+		this.cantRecibida = cantRecibida;
+		this.fechaRecepcion = fechaRecepcion;
+		this.pedido = pedido;
+		this.precioCompra = precioCompra;
+		this.producto = producto;
+	}
+
+
+
+	public Lote(int id, int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
+			Producto producto) {
+		super();
+		this.id = id;
 		this.cantRecibida = cantRecibida;
 		this.fechaRecepcion = fechaRecepcion;
 		this.pedido = pedido;
