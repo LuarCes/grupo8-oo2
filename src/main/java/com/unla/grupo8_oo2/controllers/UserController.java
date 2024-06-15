@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 
-
-
 @Controller
 public class UserController {
 
