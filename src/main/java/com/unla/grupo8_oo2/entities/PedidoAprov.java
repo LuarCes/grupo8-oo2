@@ -35,9 +35,9 @@ public class PedidoAprov {
 	@JoinColumn(name="idProducto", nullable=true) //Revisar
 	private Producto producto;
 	
-	@OneToOne
+	@OneToOne(optional=false)
 	@JoinColumn(name = "proveedor_id")
-	private Proveedor Proveedor;
+	private Proveedor proveedor;
 	
 	@Column(name="fechaPedido", unique=false, nullable=false)
 	private LocalDate fechaPedido;
@@ -45,12 +45,11 @@ public class PedidoAprov {
 	@Column(name="total", unique=false, nullable=false)
 	private double total;
 
-	public PedidoAprov(int cantidad, Producto producto, com.unla.grupo8_oo2.entities.Proveedor proveedor,
+	public PedidoAprov(int cantidad, Producto producto, 
 			LocalDate fechaPedido, double total) {
 		super();
 		this.cantidad = cantidad;
 		this.producto = producto;
-		Proveedor = proveedor;
 		this.fechaPedido = fechaPedido;
 		this.total = total;
 	}
