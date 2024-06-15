@@ -68,7 +68,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.unla</groupId>
-			<artifactId>ghsicilianotfi</artifactId>
+			<artifactId>grupo8-oo2</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
