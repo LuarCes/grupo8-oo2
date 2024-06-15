@@ -43,10 +43,8 @@ public class Lote {
 	@JoinColumn(name="idProducto", nullable=true) //Revisar
 	private Producto producto;
 
-	
-	
 	public Lote(int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
-			Producto producto) {
+			Producto producto, int cantActual) {
 		super();
 		this.cantRecibida = cantRecibida;
 		this.fechaRecepcion = fechaRecepcion;
@@ -55,18 +53,7 @@ public class Lote {
 		this.producto = producto;
 	}
 
-
-
-	public Lote(int id, int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
-			Producto producto) {
-		super();
-		this.id = id;
-		this.cantRecibida = cantRecibida;
-		this.fechaRecepcion = fechaRecepcion;
-		this.pedido = pedido;
-		this.precioCompra = precioCompra;
-		this.producto = producto;
-	}
+	
 	
 	
 }
