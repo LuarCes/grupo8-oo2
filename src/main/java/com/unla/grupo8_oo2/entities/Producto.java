@@ -38,4 +38,12 @@ public class Producto {
 		this.costo = costo;
 		this.precioVenta = precioVenta;
 	}
+
+	@Override
+	public String toString() {
+		return "\nProducto [id=" + id + ", nombre=" + nombre + ", codigo=" + codigo + ", descripcion=" + descripcion
+				+ ", costo=" + costo + ", precioVenta=" + precioVenta + "]";
+	}
+	
+	
 }

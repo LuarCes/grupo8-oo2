@@ -57,4 +57,12 @@ public class User {
 		this.enabled = enabled;
 		this.userRoles = userRoles;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", userRoles=" + userRoles + "]";
+	}
+	
+	
 }

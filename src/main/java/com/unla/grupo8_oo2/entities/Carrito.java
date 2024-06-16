@@ -2,10 +2,12 @@ package com.unla.grupo8_oo2.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,9 +37,8 @@ public class Carrito {
 	
 	
 	
-	@OneToMany 
-	@JoinColumn(name="item_id", nullable= false)
-	private Set<Item> lstItem;
+	@OneToMany(fetch=FetchType.LAZY)
+	private Set<Item> lstItem = new HashSet<>();
 	
 	@OneToOne
 	@JoinColumn(name="usuario_id", nullable= false)
