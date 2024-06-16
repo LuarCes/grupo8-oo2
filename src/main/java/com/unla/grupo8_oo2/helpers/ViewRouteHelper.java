@@ -27,6 +27,6 @@ public class ViewRouteHelper {
 	public final static String APROV = "aprovisionamiento/index";
 	
 	//REPORTES STOCK
-	public final static String REPORTES = "reporteStock/index";
+	public final static String STOCK = "stock/index";
 	
 }

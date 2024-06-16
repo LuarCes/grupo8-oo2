@@ -4,27 +4,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 import com.unla.grupo8_oo2.services.ILoteService;
+import com.unla.grupo8_oo2.services.IStockService;
 
 @Controller
-@RequestMapping("/lote")
-public class LoteController {
-
-	private ILoteService loteService;
+@RequestMapping("/stock")
+public class StockController {
 	
-	public LoteController(ILoteService loteService) {
-		this.loteService = loteService;
+private IStockService stockService;
+	
+	public StockController(IStockService stockService) {
+		this.stockService = stockService;
 	}
 	
 
     @GetMapping("")
     public ModelAndView lote() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.LOTE); 
-        mAV.addObject("lotes", loteService.getAll());
+        ModelAndView mAV = new ModelAndView(ViewRouteHelper.STOCK); 
+        mAV.addObject("stock", stockService.getAll());
         return mAV;
     }
-	
 	
 	
 	

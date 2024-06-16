@@ -14,6 +14,7 @@ import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.User;
 
+
 @Repository ("carritoRepository")
 public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>{
 	
@@ -22,8 +23,13 @@ public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>
 	@Query("SELECT c FROM Carrito c WHERE c.fecha = (:fecha)")
 	public abstract List<Carrito> findByFecha(LocalDate fecha);
 	
-	@Query("SELECT c FROM Carrito c JOIN FETCH c.user = (:user)")
-	public abstract Optional<Carrito> findByClient(User user);
+	/*
+	@Query("SELECT c FROM Carrito c JOIN FETCH c.user u WHERE u.usernombre= (:nombre)")
+	Optional<Carrito> findByUser(String nombre);
+	
+	@Query("SELECT c FROM Carrito c JOIN FETCH c.lstItem")
+    List<Carrito> findAllWithItems();
+	*/
 	
 	public abstract List<Carrito> findByFechaBetween( LocalDate inicio, LocalDate fin);
 }

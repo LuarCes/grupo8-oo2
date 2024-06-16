@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.unla.grupo8_oo2.entities.PedidoAprov;
 
 public interface IPedidoAprovService {
+	
 	public List<PedidoAprov> getAll();
 	
 	public Optional<PedidoAprov> findById(int id) throws Exception;

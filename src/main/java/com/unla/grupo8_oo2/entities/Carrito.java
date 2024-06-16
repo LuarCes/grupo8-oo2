@@ -40,7 +40,7 @@ public class Carrito {
 	@OneToMany(fetch=FetchType.LAZY)
 	private Set<Item> lstItem = new HashSet<>();
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="usuario_id", nullable= false)
 	private User cliente;
 
