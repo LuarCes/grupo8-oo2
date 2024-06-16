@@ -1,25 +1,81 @@
-<table border="1px">
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Codigo</th>
-			<th>Costo</th>
-			<th>Precio de venta</th>
-			<th>Descripción</th>
-			<th>Ver</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr th:each="producto : ${productos}">
-			<td><span th:text="${producto.nombre}" /></td>
-			<td><span th:text="${producto.codigo}" /></td>
-			<td><span th:text="${producto.costo}" /></td>
-			<td><span th:text="${producto.precioVenta}" /></td>
-			<td><span th:text="${producto.descripcion}" /></td>
-			<td>
-				<a th:href="@{/producto/{id}(id=${producto.id})}">Ver</a>
-			</td>
-		</tr>
-	</tbody>
-</table>
-<a href="/producto/new">Crear nuevo producto</a>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>COMPOTECH - Productos</title>
+	<link  href="/css/bienvenida.css" rel="stylesheet">
+
+</head>
+<body>
+	
+	<header class="encabezado">
+		
+		<nav class="header-nav">
+		   <div class="logo-container"> 
+			 <a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a> 
+		   </div>  
+		   
+		   <div class="cerrar-sesion">
+			   <a th:href="@{/logout}"><p>LogOut</p></a>
+		   </div>
+		</nav>
+		<nav class="navegador">
+		   <ul class="opciones">
+			   <li><a th:href="@{/index}">Inicio</a></li>
+			   <li><a th:href="@{/producto}">Productos</a></li>
+			   <li>Lotes</li>
+			   <li>Aprovisionamiento</li>
+			   <li>Reporte Stock</li>
+			   </ul>			
+		</nav>
+	   
+   </header>
+
+	<main>
+
+		<div class="agregar-producto">
+			<div>
+				<img src="/imagenes/iconAdd.png" width=25px height=25px>
+			</div>
+			<div>
+				<a href="/producto/new">Crear nuevo producto</a>
+			</div>
+			
+		</div>
+		
+		
+		<table border="1px">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Codigo</th>
+					<th>Costo</th>
+					<th>Precio de venta</th>
+					<th>Descripción</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto : ${productos}">
+					<td><span th:text="${producto.nombre}" /></td>
+					<td><span th:text="${producto.codigo}" /></td>
+					<td><span th:text="${producto.costo}" /></td>
+					<td><span th:text="${producto.precioVenta}" /></td>
+					<td><span th:text="${producto.descripcion}" /></td>
+					<td>
+						<a th:href="@{/producto/{id}(id=${producto.id})}">Ver</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+
+	</main>
+
+</body>
+</html>
+
+
