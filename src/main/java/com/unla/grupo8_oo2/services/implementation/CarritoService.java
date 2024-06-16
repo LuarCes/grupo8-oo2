@@ -22,17 +22,6 @@ public class CarritoService implements ICarritoService {
 		this.carritoRepository = carritoRepository;
 	}
 
-	@Override
-	public List<Producto> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Producto> findById(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
 
 	@Override
 	public List<Carrito> findByFecha(LocalDate fecha) {
@@ -40,16 +29,31 @@ public class CarritoService implements ICarritoService {
 		return null;
 	}
 
-	@Override
-	public Producto insertOrUpdate(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean remove(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Carrito insertOrUpdate(Carrito carrito) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Carrito> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Optional<Carrito> findById(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 	
 }
