@@ -54,13 +54,5 @@ public class Carrito {
 		this.lstItem = lstItem;
 		this.cliente = cliente;
 	}
-
-	@Override
-	public String toString() {
-		return "\nCarrito [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", lstItem=" + lstItem + ", cliente="
-				+ cliente + "]";
-	}
-
 	
-		
 }

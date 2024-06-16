@@ -16,7 +16,6 @@ import com.unla.grupo8_oo2.services.ICarritoService;
 public class CarritoService implements ICarritoService {
 	private final ICarritoRepository carritoRepository;
 	
-	@Autowired
 	public CarritoService(ICarritoRepository carritoRepository) {
 		this.carritoRepository = carritoRepository;
 	}

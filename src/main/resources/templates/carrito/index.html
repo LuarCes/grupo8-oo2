@@ -18,6 +18,7 @@
 				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
 
+<<<<<<< HEAD
 			<div class="cerrar-sesion">
 				<a th:href="@{/logout}">
 					<p>LogOut</p>
@@ -42,6 +43,31 @@
 
 
 	<footer>
+=======
+    <main>
+
+
+		<table border="1px">
+					<thead>
+						<tr>
+	
+							<th>cliente</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:object="${carrito}">
+							
+							<td><span th:text="${carrito.cliente.username}" /></td>
+							
+						</tr>
+					</tbody>
+				</table>
+		
+		
+		
+		
+    </main>
+>>>>>>> 10cb5b2f16da301bd0502208c726fd5f4c46038b
 
 		<h1>Aca un lindo footer</h1>
 

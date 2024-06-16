@@ -23,9 +23,9 @@ public class CarritoController {
 	}
 	
 	@GetMapping("")
-	public ModelAndView carrito() {
+	public ModelAndView carrito() throws Exception {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRITO);
-		mAV.addObject("carritos", carritoService.getAll());
+		mAV.addObject("carrito", carritoService.findById(1));
 		return mAV;
 	}
 	
