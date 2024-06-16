@@ -33,7 +33,27 @@
     </header>
 
     <main>
-       <h2>Aca un lindo main sobre Carrito</h2>
+
+
+		<table border="1px">
+					<thead>
+						<tr>
+	
+							<th>cliente</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:object="${carrito}">
+							
+							<td><span th:text="${carrito.cliente.username}" /></td>
+							
+						</tr>
+					</tbody>
+				</table>
+		
+		
+		
+		
     </main>
 
     
