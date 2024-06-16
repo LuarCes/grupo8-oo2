@@ -1,10 +1,17 @@
 package com.unla.grupo8_oo2.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,6 +37,18 @@ public class Producto {
 	
 	@Column(name="precioVenta", unique=false, nullable=false)
 	private double precioVenta;
+	
+	@OneToOne(mappedBy = "producto", fetch = FetchType.LAZY)
+    private Item item;
+	
+	@OneToOne(mappedBy = "producto", fetch = FetchType.LAZY)
+	private Stock stock;
+	
+	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
+    private Set<Lote> lotes = new HashSet<>();
+	
+	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
+    private Set<PedidoAprov> pedidosAprov = new HashSet<>();
 
 	public Producto(String nombre, String codigo, String descripcion, double costo, double precioVenta) {
 		this.nombre = nombre;

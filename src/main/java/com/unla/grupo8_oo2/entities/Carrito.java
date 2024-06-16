@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,10 +38,11 @@ public class Carrito {
 	
 	
 	
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "carrito",
+			cascade =CascadeType.ALL)
 	private Set<Item> lstItem = new HashSet<>();
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id", nullable= false)
 	private User cliente;
 
@@ -52,5 +54,12 @@ public class Carrito {
 		this.cliente = cliente;
 	}
 
+	@Override
+	public String toString() {
+		return "\nCarrito [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", lstItem=" + lstItem + ", cliente="
+				+ cliente + "]";
+	}
+
+	
 		
 }

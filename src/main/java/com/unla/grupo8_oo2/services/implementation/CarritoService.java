@@ -29,8 +29,8 @@ public class CarritoService implements ICarritoService {
 
 	//REVISAR
 	@Override
-	public Optional<Carrito> remove(int id) {
-		return carritoRepository.findById(id);
+	public boolean remove(int id) {
+		return false;
 	}
 
 	@Override
@@ -41,7 +41,8 @@ public class CarritoService implements ICarritoService {
 
 	@Override
 	public List<Carrito> getAll() {
-		return carritoRepository.findAll();
+		return carritoRepository.findAllWithItems();
+		
 	}
 
 	//REVISAR
@@ -51,9 +52,6 @@ public class CarritoService implements ICarritoService {
 		return carritoToUpdate;
 	}
 
-	@Override
-	public List<Carrito> findLotesByFechaBetween(LocalDate inicio, LocalDate fin) {
-		return carritoRepository.findByFechaBetween(inicio, fin);
-	}
+	
 	
 }
