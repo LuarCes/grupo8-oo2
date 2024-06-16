@@ -1,4 +1,10 @@
 spring:
+  application:
+   name: grupo-8
+  mvc:
+   view:
+    prefix: /templates/
+    suffix: .html
   datasource:
     url: ${DB_URL}
     username: ${USERNAME}

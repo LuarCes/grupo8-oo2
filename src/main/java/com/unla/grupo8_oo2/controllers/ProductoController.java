@@ -43,7 +43,7 @@ public class ProductoController {
 	@PostMapping("/create")
 	public RedirectView create(@ModelAttribute("producto") Producto producto) {
 		productoService.insertOrUpdate(producto);
-		return new RedirectView(ViewRouteHelper.PRODUCTO_INDEX);
+		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
 	}
 	
 	@GetMapping("{id}")

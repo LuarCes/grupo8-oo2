@@ -12,15 +12,17 @@ public class UserController {
 
 	@GetMapping("/login")
 	public String login(Model model,
-						@RequestParam(name="logout", required=false) String logout) {
+			@RequestParam(name="error", required=false) String error,
+			@RequestParam(name="logout", required=false) String logout) {
+		model.addAttribute("error", error);
 		model.addAttribute("logout", logout);
 		return ViewRouteHelper.USER_LOGIN;
 	}
 
-	/*@GetMapping("/logout")
+	@GetMapping("/logout")
 	public String logout(Model model) {
 		return ViewRouteHelper.USER_LOGOUT;
-	}*/
+	}
 
 	@GetMapping("/loginsuccess")
 	public String loginCheck() {
