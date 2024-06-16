@@ -28,32 +28,32 @@ public class LoteService implements ILoteService {
 
 	@Override
 	public Optional<Lote> findById(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return loteRepository.findById(id);
 	}
 
 	@Override
 	public Lote insertOrUpdate(Lote lote) {
-		// TODO Auto-generated method stub
-		return null;
+		return loteRepository.save(lote);
 	}
 
 	@Override
 	public boolean remove(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			loteRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
 	public List<Lote> findLotesByFechaRecepcion(LocalDate fechaRecepcion) {
-		// TODO Auto-generated method stub
-		return null;
+		return loteRepository.findByFechaRecepcion(fechaRecepcion);
 	}
 
 	@Override
 	public List<Lote> findLotesByProducto(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
+		return loteRepository.findByProducto(producto);
 	}
 
 	@Override
