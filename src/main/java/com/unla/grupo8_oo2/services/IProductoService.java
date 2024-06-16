@@ -15,4 +15,8 @@ public interface IProductoService {
 
 	public Optional<Producto> findByCodigo(String codigo) throws Exception;
 	
+	public Producto insertOrUpdate(Producto producto);
+	
+	public boolean remove(int id);
+	
 }
