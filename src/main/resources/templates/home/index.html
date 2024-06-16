@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,13 +13,17 @@
 		
 		 <nav class="header-nav">
 		    <div class="logo-container"> 
-		      <a href="#"><img src="/imagenes/logoCompoTech.png" width="45%"></a> 
+		      <a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a> 
 		    </div>  
+			
+			<div class="cerrar-sesion">
+				<a th:href="@{/logout}"><p>LogOut</p></a>
+			</div>
 		 </nav>
 		 <nav class="navegador">
 		    <ul class="opciones">
-		        <li><a href="/src/main/resources/templates/home/index.html">Inicio</a></li>
-		        <li><a href="/src/main/resources/templates/producto/index.html">Productos</a></li>
+		        <li><a th:href="@{/index}">Inicio</a></li>
+		        <li><a th:href="@{/producto}">Productos</a></li>
 		        <li>Lotes</li>
 		        <li>Aprovisionamiento</li>
 		        <li>Reporte Stock</li>

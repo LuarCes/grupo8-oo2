@@ -12,7 +12,7 @@ public class ViewRouteHelper {
 	public final static String USER_LOGOUT = "user/logout";
 
 	//PRODUCTO
-	public final static String PRODUCTO_INDEX = "producto/index";
+	public final static String PRODUCTO = "producto/index";
 	public final static String PRODUCTO_NEW = "producto/new";
 	public final static String PRODUCTO_UPDATE = "producto/update";
 	

@@ -26,12 +26,20 @@ public class ProductoController {
 		this.productoService = productoService;
 	}
 	
-	@GetMapping("")
-	public ModelAndView index() {
+
+    @GetMapping("/producto")
+    public ModelAndView producto() {
+        ModelAndView mAV = new ModelAndView("producto/index"); // Usa "producto/index" directamente si es correcto
+        mAV.addObject("productos", productoService.getAll()); // Asegúrate de que productoService está correctamente inyectado
+        return mAV;
+    }
+	
+	/*@GetMapping("/")
+	public ModelAndView producto() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.PRODUCTO_INDEX);
 		mAV.addObject("productos", productoService.getAll());
 		return mAV;
-	}
+	}*/
 	
 	@GetMapping("/new")
 	public ModelAndView create() {
@@ -60,7 +68,7 @@ public class ProductoController {
 		if(productoToUpdate.isPresent()) {
 			//ToDo
 		}
-		return new RedirectView(ViewRouteHelper.PRODUCTO_INDEX);
+		return new RedirectView(ViewRouteHelper.PRODUCTO);
 	}
 	
 	

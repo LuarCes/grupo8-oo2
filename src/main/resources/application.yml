@@ -7,10 +7,10 @@ logging:
 spring:
   application:
    name: grupo8-oo2
-  mvc:
-    view:
-      prefix: /templates/
-      suffix: .html
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
   datasource:
     url: ${DB_URL}
     username: ${USERNAME}
@@ -22,5 +22,5 @@ spring:
       ddl-auto: update
     #properties:
       #dialect: org.hibernate.dialect.MySQL5Dialect
-  thymeleaf:
-    cache: false
+  
+   
