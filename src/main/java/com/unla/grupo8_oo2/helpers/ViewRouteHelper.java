@@ -30,6 +30,6 @@ public class ViewRouteHelper {
 	public final static String STOCK = "stock/index";
 	
 	//CARRITO
-	public final static String CARRITO = "/carrito";
+	public final static String CARRITO = "carrito/index";
 	
 }
