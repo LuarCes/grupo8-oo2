@@ -60,11 +60,25 @@ public class ProductoController {
 	public RedirectView update(@ModelAttribute("producto") Producto producto) throws Exception {
 		Optional<Producto> productoToUpdate = productoService.findById(producto.getId());
 		if(productoToUpdate.isPresent()) {
-			//ToDo
+			productoToUpdate.get().setNombre(producto.getNombre());
+			productoToUpdate.get().setCodigo(producto.getCodigo());
+			productoToUpdate.get().setCosto(producto.getCosto());
+			productoToUpdate.get().setPrecioVenta(producto.getPrecioVenta());
+			productoToUpdate.get().setDescripcion(producto.getDescripcion());
+			productoService.insertOrUpdate(productoToUpdate.get());
 		}
-		return new RedirectView(ViewRouteHelper.PRODUCTO);
+		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
 	}
 	
+	@PostMapping("/delete/{id}")
+	public RedirectView delete(@PathVariable("id") int id) throws Exception {
+		productoService.remove(id);
+		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
+	}
 	
+	@GetMapping("/")
+	public RedirectView redirectToHomeIndex() {
+		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
+	}
 	
 }
