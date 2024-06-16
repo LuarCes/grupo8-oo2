@@ -7,17 +7,23 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Producto;
+import com.unla.grupo8_oo2.entities.User;
 
-public interface ICarritoRepository extends JpaRepository<Producto, Serializable>{
+@Repository ("carritoRepository")
+public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>{
 	
 	public abstract Optional<Carrito> findById(int id);
 	
-	// Todas las personas que tengan un título con ese nombre (parámetro name)
-		@Query("SELECT c FROM Carrito c WHERE c.fecha = :fecha")
-		public abstract List<Carrito> findByFecha(LocalDate fecha);
+	@Query("FROM Carrito c WHERE c.fecha = :fecha")
+	public abstract List<Carrito> findByFecha(@Param("fecha") LocalDate fecha);
 	
+	@Query("FROM Carrito c WHERE c.user = :user")
+	public abstract Optional<Carrito> findByClient(@Param("user") User user);
 	
+	public abstract List<Carrito> findByFechaBetween( LocalDate inicio, LocalDate fin);
 }

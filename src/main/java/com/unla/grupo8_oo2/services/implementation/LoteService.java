@@ -57,9 +57,8 @@ public class LoteService implements ILoteService {
 	}
 
 	@Override
-	public List<Lote> findLotesByFechaRecepcionBetween(LocalDate startDate, LocalDate endDate) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Lote> findLotesByFechaRecepcionBetween(LocalDate inicio, LocalDate fin) {
+		return loteRepository.findByFechaRecepcionBetween(inicio, fin);
 	}
     
     
