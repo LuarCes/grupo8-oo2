@@ -16,8 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.unla.grupo8_oo2.services.implementation.UserService;
 
-
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -36,8 +34,9 @@ public class SecurityConfiguration {
 				.cors(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(auth -> {
 					auth.requestMatchers("/css/*", "/imgs/*", "/js/*", "/vendor/bootstrap/css/*",
-							"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/api/v1/**").permitAll();
+							"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/api/v1/**","/login","/logout").permitAll();
 					auth.anyRequest().authenticated();
+				
 				})
 				.formLogin(login -> {
 					login.loginPage("/login");
