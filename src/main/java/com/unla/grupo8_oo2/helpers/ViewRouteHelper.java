@@ -29,4 +29,7 @@ public class ViewRouteHelper {
 	//REPORTES STOCK
 	public final static String STOCK = "stock/index";
 	
+	//CARRITO
+	public final static String CARRITO = "/carrito";
+	
 }

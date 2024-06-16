@@ -19,7 +19,6 @@ import com.unla.grupo8_oo2.services.IProductoService;
 @RequestMapping("/producto")
 public class ProductoController {
 
-	
 	private IProductoService productoService;
 	
 	public ProductoController(IProductoService productoService) {

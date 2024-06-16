@@ -14,7 +14,7 @@ public interface ICarritoService {
 	public boolean remove(int id);
 	
 	public abstract List<Carrito> findByFecha(LocalDate fecha);
-	public abstract List<Carrito> findLotesByFechaBetween(LocalDate inicio, LocalDate fin);
+	
 }
 
 

@@ -22,9 +22,9 @@ public class Item {
 	private int id;
 	
 	@Column(name="cantidad", unique=false, nullable=false)
-	private String cantidad;
+	private int cantidad;
 
-	@OneToOne 
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="producto_id")
 	private Producto producto;
 	
@@ -32,16 +32,21 @@ public class Item {
 	@JoinColumn(name="carrito_id", nullable=true)
 	private Carrito carrito;
 	
-	public Item(String cantidad, Producto producto) {
+	public Item(int cantidad, Producto producto) {
 		this.cantidad = cantidad;
 		this.producto = producto;
 	}
 
-	public Item(int id, String cantidad, Producto producto) {
+	public Item(int id, int cantidad, Producto producto) {
 		super();
 		this.id = id;
 		this.cantidad = cantidad;
 		this.producto = producto;
+	}
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito=" + carrito + "]";
 	}
 	
 	
