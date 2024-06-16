@@ -1,4 +1,4 @@
-package com.unla.grupo8_oo2.services.implementation;
+/*package com.unla.grupo8_oo2.services.implementation;
 
 import org.springframework.stereotype.Service;
 
@@ -9,4 +9,4 @@ public class StockService {
 	private final IStockRepository stockRepository;
 	
 	
-}
+}*/

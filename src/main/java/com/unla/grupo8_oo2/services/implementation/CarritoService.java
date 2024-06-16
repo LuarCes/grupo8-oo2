@@ -28,17 +28,16 @@ public class CarritoService implements ICarritoService {
 
 
 	//REVISAR
-<<<<<<< HEAD
 	/*@Override
 	public Optional<Carrito> remove(int id) {
 		return carritoRepository.findById(id);
 	}*/
-=======
+
 	@Override
 	public boolean remove(int id) {
 		return false;
 	}
->>>>>>> feeb83066afeca7241cfca5f41ce30f1a30dbdee
+
 
 	@Override
 	public Carrito insertOrUpdate(Carrito carrito) {
@@ -59,19 +58,10 @@ public class CarritoService implements ICarritoService {
 		return carritoToUpdate;
 	}
 
-<<<<<<< HEAD
+/*
 	@Override
 	public List<Carrito> findLotesByFechaBetween(LocalDate inicio, LocalDate fin) {
 		return carritoRepository.findByFechaBetween(inicio, fin);
-	}
-
-	@Override
-	public boolean remove(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-=======
-	
->>>>>>> feeb83066afeca7241cfca5f41ce30f1a30dbdee
+	}*/
 	
 }

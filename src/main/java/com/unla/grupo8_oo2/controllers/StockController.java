@@ -1,6 +1,6 @@
 package com.unla.grupo8_oo2.controllers;
 
-import org.springframework.stereotype.Controller;
+/*import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,4 +29,4 @@ private IStockService stockService;
 	
 	
 	
-}
+}*/

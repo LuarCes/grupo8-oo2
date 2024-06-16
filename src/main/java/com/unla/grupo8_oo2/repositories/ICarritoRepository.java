@@ -26,7 +26,7 @@ public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>
 	//@Query("SELECT c FROM Carrito c WHERE c.fecha = (:fecha)")
 	//public abstract List<Carrito> findByFecha(LocalDate fecha);
 	
-<<<<<<< HEAD
+
 	/*
 	@Query("SELECT c FROM Carrito c JOIN FETCH c.user u WHERE u.usernombre= (:nombre)")
 	Optional<Carrito> findByUser(String nombre);
@@ -34,8 +34,6 @@ public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>
 	@Query("SELECT c FROM Carrito c JOIN FETCH c.lstItem")
     List<Carrito> findAllWithItems();
 	*/
-=======
->>>>>>> feeb83066afeca7241cfca5f41ce30f1a30dbdee
-	
+
 	//public abstract List<Carrito> findByFechaBetween( LocalDate inicio, LocalDate fin);
 }

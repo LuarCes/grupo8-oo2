@@ -42,11 +42,8 @@ public class Carrito {
 			cascade =CascadeType.ALL)
 	private Set<Item> lstItem = new HashSet<>();
 	
-<<<<<<< HEAD
-	@OneToOne(fetch=FetchType.LAZY)
-=======
+
 	@OneToOne(fetch = FetchType.LAZY)
->>>>>>> feeb83066afeca7241cfca5f41ce30f1a30dbdee
 	@JoinColumn(name="usuario_id", nullable= false)
 	private User cliente;
 

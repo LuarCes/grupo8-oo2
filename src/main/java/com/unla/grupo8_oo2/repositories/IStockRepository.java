@@ -1,4 +1,4 @@
-package com.unla.grupo8_oo2.repositories;
+/*package com.unla.grupo8_oo2.repositories;
 
 import java.util.Optional;
 
@@ -11,4 +11,4 @@ public class IStockRepository {
 	
 	public abstract Optional<Stock> findById(int id);
 	
-}
+}*/
