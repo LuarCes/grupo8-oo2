@@ -8,6 +8,11 @@
 	<title>COMPOTECH - Carrito</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -18,12 +23,11 @@
 				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
 
-<<<<<<< HEAD
-			<div class="cerrar-sesion">
+			<<<<<<< HEAD <div class="cerrar-sesion">
 				<a th:href="@{/logout}">
 					<p>LogOut</p>
 				</a>
-			</div>
+				</div>
 		</nav>
 		<nav class="navegador">
 			<ul class="opciones">
@@ -43,31 +47,31 @@
 
 
 	<footer>
-=======
-    <main>
+		=======
+		<main>
 
 
-		<table border="1px">
-					<thead>
-						<tr>
-	
-							<th>cliente</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:object="${carrito}">
-							
-							<td><span th:text="${carrito.cliente.username}" /></td>
-							
-						</tr>
-					</tbody>
-				</table>
-		
-		
-		
-		
-    </main>
->>>>>>> 10cb5b2f16da301bd0502208c726fd5f4c46038b
+			<table border="1px">
+				<thead>
+					<tr>
+
+						<th>cliente</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:object="${carrito}">
+
+						<td><span th:text="${carrito.cliente.username}" /></td>
+
+					</tr>
+				</tbody>
+			</table>
+
+
+
+
+		</main>
+		>>>>>>> 10cb5b2f16da301bd0502208c726fd5f4c46038b
 
 		<h1>Aca un lindo footer</h1>
 

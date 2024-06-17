@@ -11,6 +11,11 @@
 	<link href="/css/bienvenida.css" rel="stylesheet">
 	<link href="/css/productoStyle.css" rel="stylesheet">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -19,7 +24,7 @@
 
 		<nav class="header-nav">
 			<div class="logo-container">
-				<a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
 
 			<div class="cerrar-sesion">
@@ -48,7 +53,7 @@
 			</div>
 
 			<div class="redirigirProducto">
-				<a href="/producto/new">
+				<a href="/new">
 					<p>Crear nuevo producto</p>
 				</a>
 			</div>

@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMPOTECH - Inicio</title>
-    <link  href="/css/bienvenida.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>COMPOTECH - Inicio</title>
+	<link href="/css/bienvenida.css" rel="stylesheet">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+	
 </head>
+
 <body>
-    <header class="encabezado">
-		
-		 <nav class="header-nav">
-		    <div class="logo-container"> 
-		      <a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a> 
-		    </div>  
-			
-			<div class="cerrar-sesion">
-				<a th:href="@{/logout}"><p>LogOut</p></a>
+	<header class="encabezado">
+
+		<nav class="header-nav">
+			<div class="logo-container">
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
-		 </nav>
-		 <nav class="navegador">
-		    <ul class="opciones">
-		        <li><a th:href="@{/index}">Inicio</a></li>
-		        <li><a th:href="@{/producto}">Productos</a></li>
-		        <li><a th:href="@{/lote}">Lotes</a></li>
-		        <li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
-		        <li><a th:href="@{/stock}">Stock</a></li>
-			</ul>			
-		 </nav>
-		
-    </header>
 
-    <main>
-       <h2>Aca un lindo main</h2>
-    </main>
+			<div class="cerrar-sesion">
+				<a th:href="@{/logout}">
+					<p>LogOut</p>
+				</a>
+			</div>
+		</nav>
+		<nav class="navegador">
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Inicio</a></li>
+				<li><a th:href="@{/producto}">Productos</a></li>
+				<li><a th:href="@{/lote}">Lotes</a></li>
+				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+				<li><a th:href="@{/stock}">Stock</a></li>
+			</ul>
+		</nav>
 
-    
-    <footer>
-       
+	</header>
+
+	<main>
+
+		<nav class="banner">
+			<div class="banner-img">
+				<h1 class="texto-banner" id="t1">¡ Armá tu próxima PC acá !</h1>
+				<h1 class="texto-banner" id="t2"> Encontrá lo último en tecnología</h1>
+			</div>
+		</nav>
+
+	</main>
+
+
+	<footer>
+
 		<h1>Aca un lindo footer</h1>
-		
-    </footer>
-    
+
+	</footer>
+
 </body>
+
 </html>
