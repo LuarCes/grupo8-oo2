@@ -43,10 +43,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:object="${carrito}">
+						<tr th:each="carrito : ${carritos}">
 							
 							<td><span th:text="${carrito.cliente.username}" /></td>
-							
+							<td><span th:text="${carrito.fecha}" /></td>
+														
 						</tr>
 					</tbody>
 				</table>

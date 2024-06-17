@@ -20,10 +20,11 @@ public class CarritoService implements ICarritoService {
 		this.carritoRepository = carritoRepository;
 	}
 
+	/*
 	@Override
 	public List<Carrito> findByFecha(LocalDate fecha) {
 		return null;
-	}
+	}*/
 
 
 	//REVISAR
@@ -32,6 +33,12 @@ public class CarritoService implements ICarritoService {
 		return carritoRepository.findById(id);
 	}*/
 
+	@Override
+	public List<Carrito> getAll() {
+		return carritoRepository.findAll();
+		
+	}
+	/*
 	@Override
 	public boolean remove(int id) {
 		return false;
@@ -44,18 +51,13 @@ public class CarritoService implements ICarritoService {
 	}
 
 
-	@Override
-	public List<Carrito> getAll() {
-		return carritoRepository.findAllWithItems();
-		
-	}
 
 	//REVISAR
 	@Override
 	public Optional<Carrito> findById(int id) throws Exception {
 		Optional<Carrito> carritoToUpdate = carritoRepository.findById(id);
 		return carritoToUpdate;
-	}
+	}*/
 
 /*
 	@Override
