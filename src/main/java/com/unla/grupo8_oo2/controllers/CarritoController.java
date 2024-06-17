@@ -15,21 +15,20 @@ public class CarritoController {
 
 	private ICarritoService carritoService;
 	
-	
 	public CarritoController(ICarritoService carritoService) {
 		this.carritoService = carritoService;
 	}
 	
 	@GetMapping("")
-	public ModelAndView carrito() throws Exception {
+	public ModelAndView carrito() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRITO);
-		mAV.addObject("carritos", carritoService.getAll());
+		mAV.addObject("carrito", carritoService.getAll());
 		return mAV;
 	}
 	
 	
 	@GetMapping("/")
 	public RedirectView redirectToHomeIndex() {
-		return new RedirectView(ViewRouteHelper.CARRITO);
+		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);
 	}
 }

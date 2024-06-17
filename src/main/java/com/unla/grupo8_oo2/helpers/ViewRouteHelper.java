@@ -19,6 +19,7 @@ public class ViewRouteHelper {
 	/**** Redirects ****/
 	public final static String ROUTE = "/index"; 
 	public final static String PRODUCTO_ROOT = "/producto";
+	public final static String CARRITO_ROOT = "/carrito";
 	
 	//LOTE
 	public final static String LOTE = "lote/index";

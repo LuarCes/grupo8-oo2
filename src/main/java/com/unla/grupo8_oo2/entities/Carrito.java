@@ -45,14 +45,14 @@ public class Carrito {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="usuario_id", nullable= false)
-	private User cliente;
+	private User user;
 
 	public Carrito(LocalDate fecha, LocalTime hora, Set<Item> lstItem, User cliente) {
 		super();
 		this.fecha = fecha;
 		this.hora = hora;
 		this.lstItem = lstItem;
-		this.cliente = cliente;
+		this.user = cliente;
 	}
 	
 }
