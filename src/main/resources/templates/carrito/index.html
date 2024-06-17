@@ -55,15 +55,28 @@
 			<table border="1px">
 				<thead>
 					<tr>
-
-						<th>cliente</th>
+						<th>Nombre</th>
+						<th>Codigo</th>
+						<th>Costo</th>
+						<th>Precio de venta</th>
+						<th>Descripción</th>
+						<th>En Stock</th>
+						<th>Stock Crítico</th>
+						<th>Hacer pedido</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:object="${carrito}">
-
-						<td><span th:text="${carrito.cliente.username}" /></td>
-
+					<tr th:each="s : ${stock}">
+						<td><span th:text="${s.producto.nombre}" /></td>
+						<td><span th:text="${s.producto.codigo}" /></td>
+						<td><span th:text="${s.producto.costo}" /></td>
+						<td><span th:text="${s.producto.precioVenta}" /></td>
+						<td><span th:text="${s.producto.descripcion}" /></td>
+						<td><span th:text="${s.stockActual}" /></td>
+						<td><span th:text="${s.descripcion}" /></td>
+						<td>
+							<a th:href="@{/aprovisionamiento/{id}(id=${s.producto.id})}">Ver</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
