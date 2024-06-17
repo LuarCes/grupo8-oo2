@@ -42,15 +42,19 @@ public class Lote {
 	// normalmente nullable es igual a false, en este caso se deja como true porque el ejemplo es simple
 	@JoinColumn(name="idProducto", nullable=true) //Revisar
 	private Producto producto;
+	
+	@Column(name="aprobado")
+	private boolean aprobado;
 
 	public Lote(int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
-			Producto producto, int cantActual) {
+			Producto producto, int cantActual, boolean aprobado) {
 		super();
 		this.cantRecibida = cantRecibida;
 		this.fechaRecepcion = fechaRecepcion;
 		this.pedido = pedido;
 		this.precioCompra = precioCompra;
 		this.producto = producto;
+		this.aprobado = aprobado;
 	}
 
 	
