@@ -23,7 +23,7 @@ public class CarritoController {
 	}
 	
 	@GetMapping("")
-	public ModelAndView carrito() throws Exception {
+	public ModelAndView carrito() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRITO);
 		mAV.addObject("stock", stockService.getAll());
 		return mAV;
@@ -32,6 +32,6 @@ public class CarritoController {
 	
 	@GetMapping("/")
 	public RedirectView redirectToHomeIndex() {
-		return new RedirectView(ViewRouteHelper.CARRITO);
+		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);
 	}
 }
