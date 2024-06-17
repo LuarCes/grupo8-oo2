@@ -27,12 +27,12 @@ public class Stock {
 	private int stockActual;
 	
 	@Column(name="stockCritico")
-	private int descripcion;
+	private int stockCritico;
 
 	public Stock(Producto producto, int stockActual, int descripcion) {
 		this.producto = producto;
 		this.stockActual = stockActual;
-		this.descripcion = descripcion;
+		this.stockCritico = descripcion;
 	}
 	
 	

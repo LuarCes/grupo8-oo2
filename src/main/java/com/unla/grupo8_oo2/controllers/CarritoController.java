@@ -17,7 +17,6 @@ public class CarritoController {
 	private ICarritoService carritoService;
 	private IStockService stockService;
 	
-
 	public CarritoController(ICarritoService carritoService, IStockService stockService) {
 		this.carritoService = carritoService;
 		this.stockService = stockService;
