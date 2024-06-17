@@ -47,6 +47,13 @@ public class Carrito {
 	@JoinColumn(name="usuario_id", nullable= false)
 	private User user;
 
+	
+	public Carrito(LocalDate fecha, LocalTime hora, User cliente) {
+		this.fecha = fecha;
+		this.hora = hora;
+		this.user = cliente;
+	}
+	
 	public Carrito(LocalDate fecha, LocalTime hora, Set<Item> lstItem, User cliente) {
 		super();
 		this.fecha = fecha;
