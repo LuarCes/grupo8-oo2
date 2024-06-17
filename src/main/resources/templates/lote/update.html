@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>COMPOTECH - Lote</title>
+	<link href="/css/bienvenida.css" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+	<header class="encabezado">
+
+		<nav class="header-nav">
+			<div class="logo-container">
+				<a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+			</div>
+
+			<div class="cerrar-sesion">
+				<a th:href="@{/logout}">
+					<p>LogOut</p>
+				</a>
+			</div>
+		</nav>
+		<nav class="navegador">
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Inicio</a></li>
+				<li><a th:href="@{/producto}">Productos</a></li>
+				<li>Lotes</li>
+				<li>Aprovisionamiento</li>
+				<li>Reporte Stock</li>
+			</ul>
+		</nav>
+
+	</header>
+
+	<main>
+
+		<form action="#" th:action="@{/lote/update}" th:object="${lote}" method="post">
+			<input type="hidden" th:field="*{id}" />
+			<p>Cantidad Recibida: <input type="text" th:field="*{cantRecibida}" /></p>
+			<p>Fecha de Recepcion: <input type="text" th:field="*{fechaRecepcion}" /></p>
+			<p>Precio de Compra: <input type="text" th:field="*{precioCompra}" /></p>
+			<p>Producto: <input type="text" th:field="*{producto.nombre}" /></p>
+			<input type="submit" value="Edit" />
+		</form>
+		<form action="#" th:action="@{/lote/delete/{id}(id=${lote.id})}" method="post">
+			<input type="submit" value="delete lote" />
+		</form>
+
+	</main>
+
+</body>
+
+</html>

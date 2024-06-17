@@ -22,6 +22,8 @@ public class ViewRouteHelper {
 	
 	//LOTE
 	public final static String LOTE = "lote/index";
+	public final static String LOTE_NEW = "lote/new";
+	public final static String LOTE_UPDATE = "lote/update";
 	
 	//APROVISIONAMIENTO
 	public final static String APROV = "aprovisionamiento/index";
