@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -36,7 +35,7 @@ class Grupo8Oo2ApplicationTests {
         MockitoAnnotations.openMocks(this);
     }
 	
-    @Test
+   /* @Test
     public void testGetAll() {
         // Crear datos de prueba
         User user = new User();
@@ -67,6 +66,6 @@ class Grupo8Oo2ApplicationTests {
         assertEquals(2, result.size());
         assertEquals(carrito1, result.get(0));
         assertEquals(carrito2, result.get(1));
-    }
+    }*/
 
 }

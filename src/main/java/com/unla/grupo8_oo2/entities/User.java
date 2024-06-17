@@ -44,6 +44,9 @@ public class User {
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
 	private Set<UserRole> userRoles = new HashSet<>();
+	
+	
+	
 
 	public User(String username, String password, boolean enabled) {
 		this.username = username;
