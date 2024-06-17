@@ -64,15 +64,29 @@
 	padding-left: 20%;
 }
 
+
+.iconos {
+	width: 50%;
+	text-align: center;
+	justify-content: center;
+	padding-top: 5%;
+	font-size: 20px;
+}
+
+.logOut{
+	width: 50%;
+}
+
 .cerrar-sesion{
-	width: 20%;
+	width: 40%;
 	padding-right: 5%;
 	text-align: center;
+	display: flex;
 }
 
 .cerrar-sesion p{
 	width: 40%;
-	height: 42px;
+	height: 35px;
 	padding-top: 5%;
 	text-align: center;
 	justify-content: center;
