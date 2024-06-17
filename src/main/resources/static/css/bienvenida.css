@@ -110,6 +110,11 @@
 }
 
 
+.formulario{
+	margin-left: 10%;
+	font-size: 25px;
+}
+
 
 .banner{
     width: 100%;
@@ -188,6 +193,13 @@
 }
 
 
+.botones{
+	width: 10%;
+	display: flex;
+	margin-left: 14%;
+	font-size: 25px;
+	justify-content: space-between;
+}
 
 .opciones li {
     border-top: 6px solid white;
@@ -479,10 +491,6 @@
 
 .container mt-4{
     margin-top: 5%;
-}
-
-#apiBuscador{
-    margin-top: 2%;
 }
 
 

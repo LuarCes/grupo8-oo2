@@ -70,7 +70,7 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/delete/{id}")
-	public RedirectView delete(@PathVariable("id") int id) throws Exception {
+	public RedirectView delete(@PathVariable("id") int id){
 		productoService.remove(id);
 		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
 	}

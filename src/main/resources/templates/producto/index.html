@@ -28,9 +28,14 @@
 			</div>
 
 			<div class="cerrar-sesion">
-				<a th:href="@{/logout}">
-					<p>LogOut</p>
-				</a>
+				<div class="iconos">
+					<a th:href="@{/carrito}">Carrito</a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
@@ -69,7 +74,8 @@
 					<th>Costo</th>
 					<th>Precio de venta</th>
 					<th>Descripción</th>
-					<th>Ver</th>
+					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -80,7 +86,12 @@
 					<td><span th:text="${producto.precioVenta}" /></td>
 					<td><span th:text="${producto.descripcion}" /></td>
 					<td>
-						<a th:href="@{/producto/{id}(id=${producto.id})}">Ver</a>
+						<a th:href="@{/producto/{id}(id=${producto.id})}"><input type="submit" value="Modificar"></a>
+					</td>
+					<td>
+						<form action="#" th:action="@{/producto/delete/{id}(id=${producto.id})}" method="post">
+							<input type="submit" value="Borrar" />
+						</form>
 					</td>
 				</tr>
 			</tbody>

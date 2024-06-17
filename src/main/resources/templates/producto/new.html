@@ -24,13 +24,18 @@
 
 		<nav class="header-nav">
 			<div class="logo-container">
-				<a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
 
 			<div class="cerrar-sesion">
-				<a th:href="@{/logout}">
-					<p>LogOut</p>
-				</a>
+				<div class="iconos">
+					<a th:href="@{/carrito}">Carrito</a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
@@ -47,12 +52,12 @@
 
 	<main>
 
-		<form action="#" th:action="@{/producto/create}" th:object="${producto}" method="post">
-			<p>Nombre: <input type="text" th:field="*{nombre}" /></p>
-			<p>Codigo: <input type="text" th:field="*{codigo}" /></p>
-			<p>Costo: <input type="number" th:field="*{costo}" /></p>
-			<p>Valor de venta: <input type="number" th:field="*{precioVenta}" /></p>
-			<p>Descripcion: <input type="text" th:field="*{descripcion}" /></p>
+		<form class="formulario" action="#" th:action="@{/producto/create}" th:object="${producto}" method="post">
+			<p>Nombre &ensp; : <input type="text" th:field="*{nombre}" /></p>
+			<p>Codigo &ensp; : <input type="text" th:field="*{codigo}" /></p>
+			<p>Costo &ensp; : <input type="number" th:field="*{costo}" min="0"/></p>
+			<p>Valor de venta &ensp; : <input type="number" th:field="*{precioVenta}" min="0"/></p>
+			<p>Descripcion &ensp; : <input type="text" th:field="*{descripcion}" /></p>
 			<input type="submit" value="Crear producto" />
 		</form>
 
