@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"></html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>COMPOTECH - Productos</title>
-	<link  href="/css/bienvenida.css" rel="stylesheet">
-	<link  href="/css/productoStyle.css" rel="stylesheet">
+	<link href="/css/bienvenida.css" rel="stylesheet">
+	<link href="/css/productoStyle.css" rel="stylesheet">
 
 </head>
+
 <body>
-	
+
 	<header class="encabezado">
-		
+
 		<nav class="header-nav">
-		   <div class="logo-container"> 
-			 <a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a> 
-		   </div>  
-		   
-		   <div class="cerrar-sesion">
-			   <a th:href="@{/logout}"><p>LogOut</p></a>
-		   </div>
+			<div class="logo-container">
+				<a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+			</div>
+
+			<div class="cerrar-sesion">
+				<a th:href="@{/logout}">
+					<p>LogOut</p>
+				</a>
+			</div>
 		</nav>
 		<nav class="navegador">
-		   <ul class="opciones">
-			   <li><a th:href="@{/index}">Inicio</a></li>
-			   <li><a th:href="@{/producto}">Productos</a></li>
-			   <li><a th:href="@{/lote}">Lotes</a></li>
-			   <li>Aprovisionamiento</li>
-			   <li>Reporte Stock</li>
-			   </ul>			
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Inicio</a></li>
+				<li><a th:href="@{/producto}">Productos</a></li>
+				<li><a th:href="@{/lote}">Lotes</a></li>
+				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+				<li><a th:href="@{/stock}">Stock</a></li>
+			</ul>
 		</nav>
-	   
-   </header>
+
+	</header>
 
 	<main>
 
@@ -42,12 +48,14 @@
 			</div>
 
 			<div class="redirigirProducto">
-				<a href="/producto/new"><p>Crear nuevo producto</p></a>
+				<a href="/producto/new">
+					<p>Crear nuevo producto</p>
+				</a>
 			</div>
-			
+
 		</div>
-		
-		
+
+
 		<table border="1px">
 			<thead>
 				<tr>
@@ -72,12 +80,11 @@
 				</tr>
 			</tbody>
 		</table>
-		
-		
+
+
 
 	</main>
 
 </body>
+
 </html>
-
-
