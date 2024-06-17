@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Stock;
 import com.unla.grupo8_oo2.repositories.IStockRepository;
 import com.unla.grupo8_oo2.services.IStockService;

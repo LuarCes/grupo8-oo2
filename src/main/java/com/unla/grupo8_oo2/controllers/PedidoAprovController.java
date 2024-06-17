@@ -41,14 +41,16 @@ public class PedidoAprovController {
         return mAV;
     }
 	
-    @GetMapping("/new")
-	public ModelAndView create() {
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.APROV_NEW);
-		mAV.addObject("pedidoAprov", new PedidoAprov());
-		mAV.addObject("proveedores", proveedorService.getAll());
-		mAV.addObject("productosEnStock", stockService.getAll());
-		return mAV;
-	}
+	@GetMapping("/new")
+    public ModelAndView create() {
+        ModelAndView mAV = new ModelAndView(ViewRouteHelper.APROV_NEW);
+        mAV.addObject("pedidoAprov", new PedidoAprov());
+        mAV.addObject("proveedores", proveedorService.getAll());
+        mAV.addObject("productosEnStock", stockService.getAll().stream()
+                .map(stock -> stock.getProducto())
+                .collect(Collectors.toList()));
+        return mAV;
+    }
     
     //FALTA TRAER LOS PROVEEDORES
     @PostMapping("/create")
