@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.unla.grupo8_oo2.services.ICarritoService;
+import com.unla.grupo8_oo2.services.IStockService;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 
 @Controller
@@ -14,16 +15,17 @@ import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 public class CarritoController {
 
 	private ICarritoService carritoService;
+	private IStockService stockService;
 	
-	
-	public CarritoController(ICarritoService carritoService) {
+	public CarritoController(ICarritoService carritoService, IStockService stockService) {
 		this.carritoService = carritoService;
+		this.stockService = stockService;
 	}
 	
 	@GetMapping("")
 	public ModelAndView carrito() throws Exception {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRITO);
-		mAV.addObject("carritos", carritoService.getAll());
+		mAV.addObject("stock", stockService.getAll());
 		return mAV;
 	}
 	

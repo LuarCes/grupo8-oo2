@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -42,8 +43,9 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/create")
-	public RedirectView create(@ModelAttribute("producto") Producto producto) {
+	public RedirectView create(@ModelAttribute("producto") Producto producto, @RequestParam("stockCritico") int stockCritico) {
 		productoService.insertOrUpdate(producto);
+		
 		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
 	}
 	
