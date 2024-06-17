@@ -38,16 +38,16 @@ public class StockService implements IStockService {
 	}
 
 	
+	
+	public Stock insertOrUpdate(Stock stock) {
+		return stockRepository.save(stock);
+	}
 	/*
 	@Override
 	public List<Stock> findByProducto(Producto producto) throws Exception {
 		return stockRepository.findByProducto(producto);
 	}
 
-	@Override
-	public Stock insertOrUpdate(Lote lote) {
-		return null;
-	}
 
 	@Override
 	public boolean remove(int id) {

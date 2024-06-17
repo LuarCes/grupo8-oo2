@@ -18,4 +18,5 @@ public interface IStockRepository extends JpaRepository<Stock, Serializable>{
 	public abstract List<Stock> findByProducto(Producto producto);
 	
 	public abstract List<Stock> findAll();
+	public Stock insertOrUpdate(Stock stock);
 }

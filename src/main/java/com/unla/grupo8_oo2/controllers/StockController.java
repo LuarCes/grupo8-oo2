@@ -13,7 +13,7 @@ import com.unla.grupo8_oo2.services.IStockService;
 @RequestMapping("/stock")
 public class StockController {
 	
-private IStockService stockService;
+	private IStockService stockService;
 	
 	public StockController(IStockService stockService) {
 		this.stockService = stockService;
