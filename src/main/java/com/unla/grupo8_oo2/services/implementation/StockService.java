@@ -38,7 +38,7 @@ public class StockService implements IStockService {
 	}
 
 	
-	
+	@Override
 	public Stock insertOrUpdate(Stock stock) {
 		return stockRepository.save(stock);
 	}

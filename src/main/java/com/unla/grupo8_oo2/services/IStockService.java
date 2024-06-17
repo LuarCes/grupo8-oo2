@@ -14,4 +14,5 @@ public interface IStockService {
 	//public List<Stock> findByProducto(Producto producto) throws Exception;
 	//public Stock insertOrUpdate(Lote lote);
 	//public boolean remove(int id);
+	public Stock insertOrUpdate(Stock stock);
 }

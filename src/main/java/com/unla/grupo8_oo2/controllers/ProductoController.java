@@ -50,7 +50,7 @@ public class ProductoController {
 	public RedirectView create(@ModelAttribute("producto") Producto producto, @RequestParam("stockCritico") int stockCritico) {
 		productoService.insertOrUpdate(producto);
 		Stock s = new Stock(producto, 0, stockCritico);
-		stockService.sa
+		stockService.insertOrUpdate(s);
 		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
 	}
 	
