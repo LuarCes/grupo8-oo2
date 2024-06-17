@@ -15,4 +15,5 @@ public interface IStockService {
 	//public Stock insertOrUpdate(Lote lote);
 	//public boolean remove(int id);
 	public Stock insertOrUpdate(Stock stock);
+	public abstract Stock findByProducto(Producto producto);
 }

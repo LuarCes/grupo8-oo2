@@ -59,5 +59,10 @@ public class StockService implements IStockService {
 		}
 	}
 	*/
+
+	@Override
+	public Stock findByProducto(Producto producto) {
+		return stockRepository.findByProducto(producto);
+	}
 	
 }
