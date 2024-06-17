@@ -5,11 +5,13 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.unla.grupo8_oo2.entities.Lote;
 import com.unla.grupo8_oo2.entities.PedidoAprov;
 import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Proveedor;
@@ -53,7 +55,6 @@ public class PedidoAprovController {
         return mAV;
     }
 
-    
     //FALTA TRAER LOS PROVEEDORES
     @PostMapping("/create")
     public RedirectView create(@ModelAttribute("pedidoAprov") PedidoAprov pedidoAprov,
@@ -71,7 +72,7 @@ public class PedidoAprovController {
         System.out.println(pedidoAprov);
         pedidoAprovService.insertOrUpdate(pedidoAprov);
 
-        return new RedirectView(ViewRouteHelper.APROV_UPDATE);
+        return new RedirectView(ViewRouteHelper.APROV_ROOT);
     }
     
 }
