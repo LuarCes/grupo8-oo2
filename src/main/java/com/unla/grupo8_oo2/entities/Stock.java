@@ -34,6 +34,12 @@ public class Stock {
 		this.stockActual = stockActual;
 		this.stockCritico = descripcion;
 	}
+
+	@Override
+	public String toString() {
+		return "Stock [id=" + id + ", producto=" + producto + ", stockActual=" + stockActual + ", stockCritico="
+				+ stockCritico + "]";
+	}
 	
 	
 }

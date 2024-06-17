@@ -47,6 +47,8 @@ public class PedidoAprovController {
 		mAV.addObject("pedidoAprov", new PedidoAprov());
 		mAV.addObject("proveedores", proveedorService.getAll());
 		mAV.addObject("productosEnStock", stockService.getAll());
+		System.out.println(proveedorService.getAll());
+		System.out.println(stockService.getAll());
 		return mAV;
 	}
     
@@ -60,10 +62,11 @@ public class PedidoAprovController {
         double precioProducto = pedidoAprov.getProducto().getCosto();
         int cantidad = pedidoAprov.getCantidad();
         double total = precioProducto * cantidad;
-
+        
         pedidoAprov.setTotal(total);
         pedidoAprov.setProducto(producto);
         pedidoAprov.setProveedor(proveedor);
+        System.out.println(pedidoAprov);
         pedidoAprovService.insertOrUpdate(pedidoAprov);
 
         return new RedirectView(ViewRouteHelper.APROV_UPDATE);

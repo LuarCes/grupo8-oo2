@@ -33,8 +33,8 @@ public class ProductoController {
 
     @GetMapping("")
     public ModelAndView producto() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.PRODUCTO); // Usa "producto/index" directamente si es correcto
-        mAV.addObject("productos", productoService.getAll()); // Asegúrate de que productoService está correctamente inyectado
+        ModelAndView mAV = new ModelAndView(ViewRouteHelper.PRODUCTO);
+        mAV.addObject("productos", productoService.getAll());
         return mAV;
     }
 	
