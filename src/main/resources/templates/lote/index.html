@@ -24,9 +24,14 @@
 			</div>
 
 			<div class="cerrar-sesion">
-				<a th:href="@{/logout}">
-					<p>LogOut</p>
-				</a>
+				<div class="iconos">
+					<a th:href="@{/carrito}">Carrito</a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
@@ -41,49 +46,37 @@
 	</header>
 
 	<main>
-		
-		<div class="agregar-lote">
-				<div class="icono">
-					<img src="/imagenes/iconAdd.png" width=30px height=30px>
-				</div>
 
-				<div class="redirigirLote">
-					<a href="/lote/new">
-						<p>Crear nuevo lote</p>
-					</a>
-				</div>
 
-			</div>
-		
-			<table border="1px">
-						<thead>
-							<tr>
-								<th>Cantidad Recibida</th>
-								<th>Fecha Recepcion</th>
-								<th>Precio de Compra</th>
-								<th>Producto</th>
-								<th>Aprobado</th>
-								<th>Ver</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="lote : ${lotes}">
-								<td><span th:text="${lote.cantRecibida}" /></td>
-								<td><span th:text="${lote.fechaRecepcion}" /></td>
-								<td><span th:text="${lote.precioCompra}" /></td>
-								<td><span th:text="${lote.producto.nombre}" /></td>
-								<td><span th:text="${lote.aprobado}" /></td>
-								<td>
-									<a th:href="@{/lote/{id}(id=${lote.id})}">Ver</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-			
-			
-			
-			
-		
+		<table border="1px">
+			<thead>
+				<tr>
+					<th>Cantidad Recibida</th>
+					<th>Fecha Recepcion</th>
+					<th>Precio de Compra</th>
+					<th>Producto</th>
+					<th>Aprobado</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lote : ${lotes}">
+					<td><span th:text="${lote.cantRecibida}" /></td>
+					<td><span th:text="${lote.fechaRecepcion}" /></td>
+					<td><span th:text="${lote.precioCompra}" /></td>
+					<td><span th:text="${lote.producto.nombre}" /></td>
+					<td><span th:text="${lote.aprobado}" /></td>
+					<td>
+						<a th:href="@{/lote/{id}(id=${lote.id})}">Ver</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+
+
 	</main>
 
 
