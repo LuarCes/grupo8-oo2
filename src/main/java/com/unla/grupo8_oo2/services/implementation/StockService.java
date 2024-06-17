@@ -3,11 +3,8 @@ package com.unla.grupo8_oo2.services.implementation;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.unla.grupo8_oo2.entities.Lote;
-import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Stock;
 import com.unla.grupo8_oo2.repositories.IStockRepository;
 import com.unla.grupo8_oo2.services.IStockService;
@@ -15,7 +12,6 @@ import com.unla.grupo8_oo2.services.IStockService;
 @Service("stockService")
 public class StockService implements IStockService {
 	private final IStockRepository stockRepository;
-	@Autowired
     public StockService(IStockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }

@@ -45,16 +45,34 @@
 	</header>
 
 	<main>
-
 		<form action="#" th:action="@{/pedidosAprov/create}" th:object="${pedidoAprov}" method="post">
-			<p>Cantidad: <input type="number" th:field="*{cantidad}" /></p>
-			<p>Producto: <input type="text" th:field="*{producto.nombre}" /></p>
-			<p>Proveedor: <input type="text" th:field="*{proveedor.nombre}" /></p>
-			<p>Fecha Pedido: <input type="date" th:field="*{fechaPedido}" /></p>
-			<p>Total: <input type="number" th:field="*{total}" /></p>
-			<input type="submit" value="Crear pedido" />
-		</form>
 
+			<div>
+				<label for="cantidad">Cantidad:</label>
+				<input type="number" id="cantidad" th:field="*{cantidad}" min="0" required />
+			</div>
+			<div>
+				<label for="producto">Producto:</label>
+				<select id="producto" th:field="*{producto}">
+					<option th:each="producto : ${productosEnStock}" th:value="${producto.id}"
+						th:text="${producto.nombre}">...</option>
+				</select>
+			</div>
+			<div>
+				<label for="proveedorNombre">Proveedor:</label>
+				<select id="proveedorNombre" th:field="*{proveedor}">
+					<option th:each="proveedor : ${proveedores}" th:value="${proveedor.id}"
+						th:text="${proveedor.nombre}">...</option>
+				</select>
+			</div>
+			<div>
+				<label for="fechaPedido">Fecha Pedido:</label>
+				<input type="date" id="fechaPedido" th:field="*{fechaPedido}" required />
+			</div>
+			<div>
+				<input type="submit" value="Crear Pedido" />
+			</div>
+		</form>
 	</main>
 
 </body>

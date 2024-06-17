@@ -16,5 +16,7 @@ public interface IPedidoAprovService {
 	
 	public List<PedidoAprov> findByProveedor(String nombre);
 	
+	public PedidoAprov insertOrUpdate(PedidoAprov pedidoAprov);
+	
 	public boolean remove(int id);
 }

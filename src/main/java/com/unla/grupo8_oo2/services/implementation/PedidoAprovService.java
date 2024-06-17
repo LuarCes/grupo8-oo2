@@ -45,4 +45,8 @@ public class PedidoAprovService implements IPedidoAprovService {
 	public List<PedidoAprov> findByProveedor(String nombre) {
 		return pedidoAprovRepository.findByProveedor(nombre);
 	}
+	
+	public PedidoAprov insertOrUpdate(PedidoAprov pedidoAprov) {
+		return pedidoAprovRepository.save(pedidoAprov);
+	}
 }

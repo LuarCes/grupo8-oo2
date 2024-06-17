@@ -30,6 +30,7 @@ public class ViewRouteHelper {
 	//APROVISIONAMIENTO
 	public final static String APROV = "pedidosAprov/index";
 	public final static String APROV_NEW = "pedidosAprov/new";
+	public final static String APROV_UPDATE = "pedidosAprov/update";
 	
 	//REPORTES STOCK
 	public final static String STOCK = "stock/index";
