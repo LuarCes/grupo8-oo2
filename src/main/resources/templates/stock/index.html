@@ -20,13 +20,18 @@
 
 		<nav class="header-nav">
 			<div class="logo-container">
-				<a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
 
 			<div class="cerrar-sesion">
-				<a th:href="@{/logout}">
-					<p>LogOut</p>
-				</a>
+				<div class="iconos">
+					<a th:href="@{/carrito}">Carrito</a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
@@ -58,6 +63,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="s : ${stock}">
+
 					<td><span th:text="${s.producto.nombre}" /></td>
 					<td><span th:text="${s.producto.codigo}" /></td>
 					<td><span th:text="${s.producto.costo}" /></td>
@@ -66,12 +72,12 @@
 					<td><span th:text="${s.stockActual}" /></td>
 					<td><span th:text="${s.stockCritico}" /></td>
 					<td>
-						<a th:href="@{/aprovisionamiento/{id}(id=${s.producto.id})}">Ver</a>
+						<a th:href="@{/pedidoAprov/{id}(id=${s.producto.id})}">Ver</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		
+
 	</main>
 
 

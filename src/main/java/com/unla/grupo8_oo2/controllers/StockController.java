@@ -21,7 +21,7 @@ public class StockController {
 	
 
     @GetMapping("")
-    public ModelAndView lote() {
+    public ModelAndView stock() {
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.STOCK); 
         mAV.addObject("stock", stockService.getAll());
         return mAV;

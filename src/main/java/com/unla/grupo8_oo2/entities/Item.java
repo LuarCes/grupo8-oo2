@@ -1,5 +1,7 @@
 package com.unla.grupo8_oo2.entities;
 
+import java.util.Optional;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

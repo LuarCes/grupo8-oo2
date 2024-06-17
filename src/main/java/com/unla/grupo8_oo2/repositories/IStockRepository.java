@@ -15,7 +15,8 @@ import com.unla.grupo8_oo2.entities.Stock;
 public interface IStockRepository extends JpaRepository<Stock, Serializable>{
 	
 	public abstract Optional<Stock> findById(int id);
-	public abstract List<Stock> findByProducto(Producto producto);
-	
+	//public abstract List<Stock> findByProductos(Producto producto);
+	public abstract Stock findByProducto(Producto producto);
 	public abstract List<Stock> findAll();
+
 }

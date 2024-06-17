@@ -45,9 +45,12 @@ public class Lote {
 	
 	@Column(name="aprobado")
 	private boolean aprobado;
+	
+	@Column(name="comentario")
+	private String comentario;
 
 	public Lote(int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
-			Producto producto, int cantActual, boolean aprobado) {
+			Producto producto, int cantActual, boolean aprobado, String comentario) {
 		super();
 		this.cantRecibida = cantRecibida;
 		this.fechaRecepcion = fechaRecepcion;
@@ -55,6 +58,7 @@ public class Lote {
 		this.precioCompra = precioCompra;
 		this.producto = producto;
 		this.aprobado = aprobado;
+		this.comentario = comentario;
 	}
 
 	

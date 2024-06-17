@@ -15,7 +15,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
-	<script src="/js/carrito.js" async></script>
+
 </head>
 
 <body>
@@ -51,52 +51,18 @@
 	</header>
 
 	<main>
-
-		<div class="agregar-producto">
-			<div class="icono">
-				<img src="/imagenes/iconAdd.png" width=30px height=30px>
-			</div>
-
-			<div class="redirigirProducto">
-				<a href="producto/new">
-					<p>Crear nuevo producto</p>
-				</a>
-			</div>
-
-		</div>
-
-
-		<table border="1px">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Codigo</th>
-					<th>Costo</th>
-					<th>Precio de venta</th>
-					<th>Descripción</th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="producto : ${productos}">
-					<td><span th:text="${producto.nombre}" /></td>
-					<td><span th:text="${producto.codigo}" /></td>
-					<td><span th:text="${producto.costo}" /></td>
-					<td><span th:text="${producto.precioVenta}" /></td>
-					<td><span th:text="${producto.descripcion}" /></td>
-					<td>
-						<a th:href="@{/producto/{id}(id=${producto.id})}"><input type="submit" value="Modificar"></a>
-					</td>
-					<td>
-						<form action="#" th:action="@{/producto/delete/{id}(id=${producto.id})}" method="post">
-							<input type="submit" value="Borrar" />
-						</form>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
+	
+		<h1>Productos</h1>
+		       <ul>
+		           <li th:each="producto : ${productos}">
+		               <span th:text="${producto.nombre}">Nombre</span> - 
+		               <span th:text="${producto.precioVenta}">Precio</span>
+		               <form th:action="@{/carrito/add}" method="post">
+		                   <input type="hidden" name="productId" th:value="${producto.id}">
+		                   <button type="submit">Agregar al Carrito</button>
+		               </form>
+		           </li>
+		       </ul>
 
 
 	</main>

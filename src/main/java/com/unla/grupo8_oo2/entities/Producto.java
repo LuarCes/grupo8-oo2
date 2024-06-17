@@ -38,16 +38,20 @@ public class Producto {
 	@Column(name="precioVenta", unique=false, nullable=false)
 	private double precioVenta;
 	
-	@OneToOne(mappedBy = "producto", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "producto", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
     private Item item;
 	
-	@OneToOne(mappedBy = "producto", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "producto", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
 	private Stock stock;
 	
-	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
     private Set<Lote> lotes = new HashSet<>();
 	
-	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "producto", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
     private Set<PedidoAprov> pedidosAprov = new HashSet<>();
 
 	public Producto(String nombre, String codigo, String descripcion, double costo, double precioVenta) {
