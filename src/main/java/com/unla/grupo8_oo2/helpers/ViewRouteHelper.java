@@ -21,6 +21,7 @@ public class ViewRouteHelper {
 	public final static String PRODUCTO_ROOT = "/producto";
 	public final static String CARRITO_ROOT = "/carrito";
 	public final static String LOTE_ROOT = "/lote";
+	public final static String APROV_ROOT = "/pedidosAprov";
 	
 	//LOTE
 	public final static String LOTE = "lote/index";
