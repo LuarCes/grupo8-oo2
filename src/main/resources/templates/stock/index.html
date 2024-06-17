@@ -63,7 +63,6 @@
 			</thead>
 			<tbody>
 				<tr th:each="s : ${stock}">
-<<<<<<< HEAD
 					<td><span th:text="${s.producto.nombre}" ></td>
 					<td><span th:text="${s.producto.codigo}" ></td>
 					<td><span th:text="${s.producto.costo}" ></td>
@@ -71,7 +70,6 @@
 					<td><span th:text="${s.producto.descripcion}" ></td>
 					<td><span th:text="${s.stockActual}" ></td>
 					<td><span th:text="${s.descripcion}" ></td>
-=======
 					<td><span th:text="${s.producto.nombre}" /></td>
 					<td><span th:text="${s.producto.codigo}" /></td>
 					<td><span th:text="${s.producto.costo}" /></td>
@@ -79,7 +77,6 @@
 					<td><span th:text="${s.producto.descripcion}" /></td>
 					<td><span th:text="${s.stockActual}" /></td>
 					<td><span th:text="${s.stockCritico}" /></td>
->>>>>>> 134c9877eedfd742ebe6c233420b989dcc10b676
 					<td>
 						<a th:href="@{/aprovisionamiento/{id}(id=${s.producto.id})}">Ver</a>
 					</td>
