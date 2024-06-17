@@ -38,7 +38,7 @@ public class StockService implements IStockService {
 	}
 
 	
-	
+	/*
 	@Override
 	public List<Stock> findByProducto(Producto producto) throws Exception {
 		return stockRepository.findByProducto(producto);
@@ -58,6 +58,6 @@ public class StockService implements IStockService {
 			return false;
 		}
 	}
-	
+	*/
 	
 }

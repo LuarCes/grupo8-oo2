@@ -48,14 +48,14 @@ public class PedidoAprov {
 	@Column(name="entregado")
 	private boolean entregado;
 
-	public PedidoAprov(int cantidad, Producto producto, 
-			LocalDate fechaPedido, double total, boolean entregado) {
+	public PedidoAprov(int cantidad, Producto producto, Proveedor proveedor,
+			LocalDate fechaPedido, double total) {
 		super();
 		this.cantidad = cantidad;
 		this.producto = producto;
 		this.fechaPedido = fechaPedido;
 		this.total = total;
-		this.entregado = entregado;
+		this.proveedor = proveedor;
 	}
 	
 	

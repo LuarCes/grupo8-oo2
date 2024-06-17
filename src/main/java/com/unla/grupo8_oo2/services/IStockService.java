@@ -11,7 +11,7 @@ import com.unla.grupo8_oo2.entities.Stock;
 public interface IStockService {
 	public List<Stock> getAll();
 	public Optional<Stock> findById(int id) throws Exception;
-	public List<Stock> findByProducto(Producto producto) throws Exception;
-	public Stock insertOrUpdate(Lote lote);
-	public boolean remove(int id);
+	//public List<Stock> findByProducto(Producto producto) throws Exception;
+	//public Stock insertOrUpdate(Lote lote);
+	//public boolean remove(int id);
 }

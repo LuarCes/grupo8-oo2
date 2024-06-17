@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Stock;
 
@@ -14,6 +15,7 @@ import com.unla.grupo8_oo2.entities.Stock;
 public interface IStockRepository extends JpaRepository<Stock, Serializable>{
 	
 	public abstract Optional<Stock> findById(int id);
-	List<Stock> findByProducto(Producto producto);
+	public abstract List<Stock> findByProducto(Producto producto);
 	
+	public abstract List<Stock> findAll();
 }

@@ -21,7 +21,7 @@ public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>
 	//@Query("SELECT c FROM Carrito c JOIN FETCH c.lstItem i JOIN FETCH i.producto")
     //List<Carrito> findAllWithItems();
 	
-	List<Carrito> findAll();
+	public abstract List<Carrito> findAll();
 	
 	//public abstract Optional<Carrito> findById(int id);
 	

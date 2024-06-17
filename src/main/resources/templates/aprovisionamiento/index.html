@@ -61,23 +61,25 @@
 		<table border="1px">
 			<thead>
 				<tr>
-					<th>Nombre</th>
-					<th>Codigo</th>
-					<th>Costo</th>
-					<th>Precio de venta</th>
-					<th>Descripción</th>
-					<th>Ver</th>
+					<th>Fecha</th>
+					<th>Producto</th>
+					<th>Cantidad</th>
+					<th>Proveedor</th>
+					<th>Total</th>
+					<th>Entregado</th>
+					<th>ToDo</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="producto : ${productos}">
-					<td><span th:text="${producto.nombre}" /></td>
-					<td><span th:text="${producto.codigo}" /></td>
-					<td><span th:text="${producto.costo}" /></td>
-					<td><span th:text="${producto.precioVenta}" /></td>
-					<td><span th:text="${producto.descripcion}" /></td>
+				<tr th:each="p : ${pedidos}">
+					<td><span th:text="${p.fechaPedido}" /></td>
+					<td><span th:text="${p.producto.nombre}" /></td>
+					<td><span th:text="${p.cantidad}" /></td>
+					<td><span th:text="${p.proveedor.nombre}" /></td>
+					<td><span th:text="${p.total}" />$</td>
+					<td><span th:text="${p.entregado}" /></td>
 					<td>
-						<a th:href="@{/producto/{id}(id=${producto.id})}">Ver</a>
+						<a>Ver</a>
 					</td>
 				</tr>
 			</tbody>

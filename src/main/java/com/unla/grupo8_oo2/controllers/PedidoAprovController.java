@@ -23,7 +23,7 @@ public class PedidoAprovController {
     @GetMapping("")
     public ModelAndView pedidosAprov() {
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.APROV); 
-        mAV.addObject("pedidosAprovisionamiento", pedidoAprovService.getAll());
+        mAV.addObject("pedidos", pedidoAprovService.getAll());
         return mAV;
     }
 	
