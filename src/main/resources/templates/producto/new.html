@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-</html>
 <html lang="en">
 
 <head>
@@ -10,12 +8,14 @@
 	<title>COMPOTECH - Nuevo Producto</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
 	<link href="/css/productoStyle.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
-
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+	
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 
 			<div class="cerrar-sesion">
 				<div class="iconos">
-					<a th:href="@{/carrito}">Carrito</a>
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
 				</div>
 				<div class="logOut">
 					<a th:href="@{/logout}">
@@ -47,7 +47,6 @@
 				<li><a th:href="@{/stock}">Stock</a></li>
 			</ul>
 		</nav>
-
 	</header>
 
 	<main>
@@ -56,8 +55,8 @@
 		<form class="formulario" action="#" th:action="@{/producto/create}" th:object="${producto}" method="post">
 			<p>Nombre &ensp; : <input type="text" th:field="*{nombre}" /></p>
 			<p>Codigo &ensp; : <input type="text" th:field="*{codigo}" /></p>
-			<p>Costo &ensp; : <input type="number" th:field="*{costo}" min="0"/></p>
-			<p>Valor de venta &ensp; : <input type="number" th:field="*{precioVenta}" min="0"/></p>
+			<p>Costo &ensp; : <input type="number" th:field="*{costo}" min="0" /></p>
+			<p>Valor de venta &ensp; : <input type="number" th:field="*{precioVenta}" min="0" /></p>
 			<p>Descripcion &ensp; : <input type="text" th:field="*{descripcion}" /></p>
 			<p>Stock Critico &ensp; : <input type="number" name="stockCritico" /></p>
 

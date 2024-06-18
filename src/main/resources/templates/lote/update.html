@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-</html>
 <html lang="en">
 
 <head>
@@ -9,11 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>COMPOTECH - Lote</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -23,24 +23,29 @@
 
 		<nav class="header-nav">
 			<div class="logo-container">
-				<a href="th:href=@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
 			</div>
 
 			<div class="cerrar-sesion">
-				<a th:href="@{/logout}">
-					<p>LogOut</p>
-				</a>
+				<div class="iconos">
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
-					<ul class="opciones">
-						<li><a th:href="@{/index}">Inicio</a></li>
-						<li><a th:href="@{/producto}">Productos</a></li>
-						<li><a th:href="@{/lote}">Lotes</a></li>
-						<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
-						<li><a th:href="@{/stock}">Stock</a></li>
-					</ul>
-				</nav>
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Inicio</a></li>
+				<li><a th:href="@{/producto}">Productos</a></li>
+				<li><a th:href="@{/lote}">Lotes</a></li>
+				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+				<li><a th:href="@{/stock}">Stock</a></li>
+			</ul>
+		</nav>
 
 	</header>
 
@@ -49,29 +54,33 @@
 		<form action="#" th:action="@{/lote/update}" th:object="${lote}" method="post">
 			<input type="hidden" th:field="*{id}" />
 			<p>Cantidad Recibida: <input type="number" th:field="*{cantRecibida}" min="0" /></p>
-			<p>Fecha de Recepcion: <td><span th:text="${lote.fechaRecepcion}" /></td></p>
-			<p>Precio de Compra: <td><span th:text="${lote.precioCompra}" /></td></p>
-			<p>Producto: <td><span th:text="${lote.producto.nombre}" /></td></p>
+			<p>Fecha de Recepcion: <td><span th:text="${lote.fechaRecepcion}" /></td>
+			</p>
+			<p>Precio de Compra: <td><span th:text="${lote.precioCompra}" /></td>
+			</p>
+			<p>Producto: <td><span th:text="${lote.producto.nombre}" /></td>
+			</p>
 			<p>Comentario: <input type="text" th:field="*{comentario}" /></p>
-			<p>Estado: <button type="submit" id="btnAprobado" th:text="${lote.aprobado ? 'Aprobado' : 'Aprobar'}" 
-			                onclick="toggleAprobado()" value="Edit" ></button>
-			        <input type="hidden" th:field="*{aprobado}" id="inputAprobado"  /></p>
+			<p>Estado: <button type="submit" id="btnAprobado" th:text="${lote.aprobado ? 'Aprobado' : 'Aprobar'}"
+					onclick="toggleAprobado()" value="Edit"></button>
+				<input type="hidden" th:field="*{aprobado}" id="inputAprobado" />
+			</p>
 		</form>
-	
+
 		<script>
-		    function toggleAprobado() {
-		        var inputAprobado = document.getElementById('inputAprobado');
-		        var btnAprobado = document.getElementById('btnAprobado');
+			function toggleAprobado() {
+				var inputAprobado = document.getElementById('inputAprobado');
+				var btnAprobado = document.getElementById('btnAprobado');
 
-		        inputAprobado.value = inputAprobado.value === 'true' ? 'false' : 'true';
+				inputAprobado.value = inputAprobado.value === 'true' ? 'false' : 'true';
 
-		        btnAprobado.innerText = inputAprobado.value === 'true' ? 'Aprobado' : 'Aprobar';
-				
-				 document.getElementById('loteForm').submit();
-		    }
+				btnAprobado.innerText = inputAprobado.value === 'true' ? 'Aprobado' : 'Aprobar';
+
+				document.getElementById('loteForm').submit();
+			}
 		</script>
-		
-		
+
+
 	</main>
 
 </body>
