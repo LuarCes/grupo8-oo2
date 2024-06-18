@@ -150,7 +150,7 @@ public class CarritoController {
 	    for (Item item : lstItem) {
 	        carritoService.addItemToCarrito(c, item);
 	    }
-		lstItem = null;
+		lstItem = new ArrayList<Item>();
 	    
 		System.out.println("CREE UN CARRITO NUEVO");
 		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);

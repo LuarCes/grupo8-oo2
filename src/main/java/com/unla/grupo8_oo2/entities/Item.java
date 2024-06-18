@@ -26,8 +26,8 @@ public class Item {
 	@Column(name="cantidad", unique=false, nullable=false)
 	private int cantidad;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="producto_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "producto_id", nullable = false)
 	private Producto producto;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

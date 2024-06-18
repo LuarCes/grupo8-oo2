@@ -16,7 +16,7 @@ public interface ICarritoService {
 	public Carrito insertOrUpdate(List<Item> lstItem, String username);
 	public void addItemToCarrito(Carrito carrito, Item item);
 	public Carrito createCarrito(String username);
-	public Carrito findByFechaAndHora(LocalDate fecha, LocalTime hora);
+	
 	//public boolean remove(int id);
 	
 	//public abstract List<Carrito> findByFecha(LocalDate fecha);

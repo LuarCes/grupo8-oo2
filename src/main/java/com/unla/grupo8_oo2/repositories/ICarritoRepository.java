@@ -24,7 +24,7 @@ public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>
 	
 	public abstract List<Carrito> findAll();
 	
-	public abstract Carrito findByFechaAndHora(LocalDate fecha, LocalTime hora);
+	
 	//public abstract Optional<Carrito> findById(int id);
 	
 	//@Query("SELECT c FROM Carrito c WHERE c.fecha = (:fecha)")

@@ -74,11 +74,6 @@ public class CarritoService implements ICarritoService {
 	        return carritoRepository.save(carrito);
 	    }
 
-	 	@Override
-	 	public Carrito findByFechaAndHora(LocalDate fecha, LocalTime hora) {
-	 		
-	 		return carritoRepository.findByFechaAndHora(fecha, hora);
-	 	}
 	 	
 	    @Transactional
 	    public void addItemToCarrito(Carrito carrito, Item item) {
