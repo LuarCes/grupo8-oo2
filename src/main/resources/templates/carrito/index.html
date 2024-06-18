@@ -17,6 +17,51 @@
 
 	<script src="/js/carrito.js?v=1.0" async></script>
 
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+		        const contenedorCarrito = document.querySelector('.carrito-items');
+
+		        contenedorCarrito.addEventListener('click', function(event) {
+		            if (event.target.classList.contains('btn-eliminar')) {
+		                const botonEliminar = event.target;
+		                const itemId = botonEliminar.dataset.itemId;
+
+		                // Realizar una solicitud POST para eliminar el ítem del carrito
+		                fetch(`/carrito/eliminar/${itemId}`, {
+		                    method: 'POST'
+		                })
+		                .then(response => {
+		                    if (response.ok) {
+		                        // Actualizar la interfaz de usuario después de eliminar
+		                        // Eliminar el elemento del DOM correspondiente al ítem eliminado
+		                        botonEliminar.closest('.carrito-item').remove();
+								actualizarTotalCarrito();
+		                    } else {
+		                        console.error('Error al eliminar el ítem del carrito');
+		                    }
+		                })
+		                .catch(error => {
+		                    console.error('Error de red:', error);
+		                });
+		            }
+		        });
+		    });
+			
+			function actualizarTotalCarrito() {
+			       const carritoItems = document.querySelectorAll(".carrito-item");
+			       let total = 0;
+			       carritoItems.forEach(item => {
+			           const precio = parseFloat(item.querySelector(".carrito-item-precio").textContent.replace("$", ""));
+			           const cantidad = parseInt(item.querySelector(".carrito-item-cantidad").textContent);
+			           total += precio * cantidad;
+			       });
+
+			       const carritoTotal = document.querySelector(".carrito-precio-total");
+			       carritoTotal.textContent = `$${total.toFixed(2)}`;
+			   }
+			
+		</script>
+	
 </head>
 
 <body>
@@ -84,9 +129,7 @@
 		                        <span class="carrito-item-precio" th:text="${item.producto.precioVenta}"></span>
 		                        <span class="carrito-item-cantidad" th:text="${item.cantidad}"></span>
 								<input type="hidden" name="itemId" th:value="${item.id}"/>
-								<form th:action="@{/carrito/eliminar/{id}(id=${item.id})}" method="post">
-		                           <button type="submit" class="btn-eliminar">Eliminar</button>
-		                       </form>
+								<button type="button" class="btn-eliminar" th:data-item-id="${item.id}">Eliminar</button>
 		                       
 		                    </div>
 		                </div>
@@ -104,39 +147,8 @@
 		    </div>
 	</section>
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-		    const form = document.getElementById('carrito-form');
-		    
-		    form.addEventListener('submit', function(event) {
-		        event.preventDefault(); // Prevenir la redirección
+	
 
-		        // Crear un objeto FormData con los datos del formulario
-		        const formData = new FormData(form);
-
-		        // Convertir FormData a un objeto JSON para visualización
-		        const formDataObject = {};
-		        formData.forEach((value, key) => {
-		            if (!formDataObject[key]) {
-		                formDataObject[key] = value;
-		            } else {
-		                if (!Array.isArray(formDataObject[key])) {
-		                    formDataObject[key] = [formDataObject[key]];
-		                }
-		                formDataObject[key].push(value);
-		            }
-		        });
-
-		        // Imprimir el objeto JSON en la consola
-		        console.log(JSON.stringify(formDataObject, null, 2));
-
-		        // Enviar el formulario después de la depuración
-		        setTimeout(() => {
-		            form.submit();
-		        }, 1000); // Puedes ajustar el tiempo de espera según sea necesario
-		    });
-		});
-	</script>
 	
 </body>
 

@@ -1,30 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
    
 
-const botonesEliminar = document.querySelectorAll(".btn-eliminar");
-
-    botonesEliminar.forEach(boton => {
-        boton.addEventListener("click", function() {
-            const itemId = boton.dataset.itemId;
-            	console.log("Estoy en el boton de borraaarr");
-            // Realizar una solicitud POST para eliminar el ítem del carrito
-            fetch(`/carrito/eliminar/${itemId}`, {
-                method: 'POST'
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Actualizar la vista del carrito o hacer algo después de eliminar
-                    location.reload(); // Recargar la página o actualizar el contenido del carrito
-                } else {
-                    console.error('Error al eliminar el ítem del carrito');
-                }
-            })
-            .catch(error => {
-                console.error('Error de red:', error);
-            });
-        });
-    });
-
 
  const botonesAgregar = document.querySelectorAll(".boton-item");
     botonesAgregar.forEach(boton => {
