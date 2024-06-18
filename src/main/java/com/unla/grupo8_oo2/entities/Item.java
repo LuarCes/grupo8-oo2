@@ -1,6 +1,6 @@
 package com.unla.grupo8_oo2.entities;
 
-import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,16 +39,11 @@ public class Item {
 		this.producto = producto;
 	}
 
-	public Item(int id, int cantidad, Producto producto) {
-		super();
-		this.id = id;
-		this.cantidad = cantidad;
-		this.producto = producto;
-	}
-
+	
+	
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito=" + carrito + "]";
+		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito=" + carrito + "]";
 	}
 	
 	

@@ -59,35 +59,85 @@
 				<div class="item">
 					<span class="titulo-item" th:text="${stock.producto.nombre}"></span>
 					<span class="precio-item" th:text="${stock.producto.precioVenta}"></span>
-					
-					<button class="boton-item" data-producto-id="${stock.producto.id}" th:data-stockactual="${stock.stockActual}">Agregar al Carrito</button>
+					<input type="number" min="1" th:max="${stock.stockActual}" value="1" class="cantidad-item" />
+				
+					<button class="boton-item" 
+                       th:data-producto-id="${stock.producto.id}" 
+                       th:data-producto-nombre="${stock.producto.nombre}" 
+                       th:data-producto-precio="${stock.producto.precioVenta}" 
+                       th:data-stock-actual="${stock.stockActual}">Agregar al Carrito
+					</button>				
 				</div>
 			</tr>
 		</div>
 
 		<!-- Carrito de Compras -->
-		<div class="cuadro-carrito">
-			<tr class="carrito" id="carrito">
-				<div class="header-carrito">
-					<h2>Tu Carrito</h2>
-				</div>
-
-				<div class="carrito-items">
-					<!-- Aquí se mostrarán los elementos del carrito -->
-					
-				</div>
-				<div class="carrito-total">
-					<div class="fila">
-						<strong>Tu Total</strong>
-						<span class="carrito-precio-total">$0,00</span>
+		<form th:action="@{/carrito/create}" method="post" id="carrito-form" th:object="${lstItem}">
+			<div class="cuadro-carrito">
+				<tr class="carrito" id="carrito">
+					<div class="header-carrito">
+						<h2>Tu Carrito</h2>
 					</div>
-					<button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
-				</div>
-			</tr>
-		</div>
 		
+					<div class="carrito-items">
+						<!-- Aquí se mostrarán los elementos del carrito -->
+						<div th:each="item : ${lstItem}">
+				            <div class="carrito-item">
+				                <span class="carrito-item-titulo" th:text="${item.producto.nombre}"></span>
+				                <span class="carrito-item-precio" th:text="${item.producto.precioVenta}"></span>
+				                <span class="carrito-item-cantidad" th:text="${item.cantidad}"></span>
+				                
+				                    <input type="hidden" name="itemId" th:value="${item.id}"/>
+				                    <button type="button" class="btn-eliminar" th:attr="data-item-id=${item.id}">Eliminar</button>
+				                
+				            </div>
+				        </div>
+						
+					</div>
+					<div class="carrito-total">
+						<div class="fila">
+							<strong>Tu Total</strong>
+							<span class="carrito-precio-total" >0</span>
+						</div>
+						<button type="submit" class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+					</div>
+				</tr>
+			</div>
+		</form>
 	</section>
 
+	<script>/*
+	document.addEventListener("DOMContentLoaded", function() {
+	    const form = document.getElementById('carrito-form');
+	    
+	    form.addEventListener('submit', function(event) {
+	        event.preventDefault(); // Prevenir la redirección
+
+	        // Crear un objeto FormData con los datos del formulario
+	        const formData = new FormData(form);
+
+	        // Convertir FormData a un objeto JSON para visualización
+	        const formDataObject = {};
+	        formData.forEach((value, key) => {
+	            if (!formDataObject[key]) {
+	                formDataObject[key] = value;
+	            } else {
+	                if (!Array.isArray(formDataObject[key])) {
+	                    formDataObject[key] = [formDataObject[key]];
+	                }
+	                formDataObject[key].push(value);
+	            }
+	        });
+
+	        // Imprimir el objeto JSON en la consola
+	        console.log(JSON.stringify(formDataObject, null, 2));
+
+	        // Si deseas continuar con el envío del formulario al servidor después de la depuración, usa:
+	         form.submit();
+	    });
+	});*/
+	</script>
+	
 </body>
 
 </html>
