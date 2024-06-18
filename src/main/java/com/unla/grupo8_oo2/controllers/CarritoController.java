@@ -35,7 +35,7 @@ public class CarritoController {
 	@GetMapping("")
 	public ModelAndView carrito() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRITO);
-		mAV.addObject("productos", productoService.getAll());
+		mAV.addObject("stock", stockService.getAll());
 		return mAV;
 	}
 	

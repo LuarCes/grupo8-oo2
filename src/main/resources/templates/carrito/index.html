@@ -15,7 +15,7 @@
 
 	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 
-	<script src="/js/carrito.js" async></script>
+	<script src="/js/carrito.js?v=1.0" async></script>
 
 </head>
 
@@ -52,32 +52,17 @@
 
 	</header>
 
-
-	<!-- 
-		<main>
-		      <h1>Carrito de Compras</h1>
-		      <ul>
-		          <li th:each="stock : ${stock}">
-		              <span th:text="${stock.producto.nombre}">Nombre</span> 
-		              <span th:text="${stock.producto.precioVenta}">Precio</span> 
-		              <span th:text="${stock.cantidad}">Cantidad</span>
-		          </li>
-		      </ul>
-		      <a href="/productos">Seguir Comprando</a>
-		</main> -->
-
-
 	<section class="contenedor">
 		<!-- Contenedor de elementos -->
 		<div class="header-productos">
 			<h2>Productos</h2>
 		</div>
 		<div class="contenedor-items">
-			<tr th:each="producto : ${productos}">
+			<tr th:each="stock : ${stock}">
 				<div class="item">
-					<span class="titulo-item" th:text="${producto.nombre}"></span>
-					<span class="precio-item" th:text="${producto.precioVenta}"></span>
-					<button class="boton-item">Agregar al Carrito</button>
+					<span class="titulo-item" th:text="${stock.producto.nombre}"></span>
+					<span class="precio-item" th:text="${stock.producto.precioVenta}"></span>
+					<button class="boton-item" data-producto-id="${stock.producto.id}">Agregar al Carrito</button>
 				</div>
 			</tr>
 		</div>
@@ -90,11 +75,8 @@
 				</div>
 
 				<div class="carrito-items">
-
-					<div class="carrito-item">
-
-					</div>
-
+					<!-- Aquí se mostrarán los elementos del carrito -->
+					
 				</div>
 				<div class="carrito-total">
 					<div class="fila">
@@ -105,7 +87,8 @@
 					</div>
 					<button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
 				</div>
-				</div>
+			</tr>
+		</div>
 		
 	</section>
 
