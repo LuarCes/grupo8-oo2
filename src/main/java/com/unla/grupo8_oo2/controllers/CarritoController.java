@@ -29,8 +29,10 @@ import com.unla.grupo8_oo2.services.implementation.ProductoService;
 import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Item;
 import com.unla.grupo8_oo2.entities.Producto;
+import com.unla.grupo8_oo2.entities.Stock;
 import com.unla.grupo8_oo2.entities.User;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
+
 
 @Controller
 @RequestMapping("/carrito")
@@ -142,16 +144,23 @@ public class CarritoController {
 	public RedirectView create() {
 		System.out.println("/ESTOY DENTRO DEL CREATE");
 		System.out.println(lstItem);
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		Producto auxProducto = null;
+		Stock auxStock = null;
+		int stockActu=0;
 		
-		Carrito c = carritoService.createCarrito(username);
 		
 		 // Añadir cada item al carrito recuperado
 	    for (Item item : lstItem) {
-	        carritoService.addItemToCarrito(c, item);
+
+	        auxProducto= item.getProducto();
+	        auxStock= stockService.findByProducto(auxProducto);
+	        stockActu=auxStock.getStockActual()-item.getCantidad();
+	        auxStock.setStockActual(stockActu);
+	        stockService.insertOrUpdate(auxStock);
 	    }
 		lstItem = new ArrayList<Item>();
-	    
+			
+		
 		System.out.println("CREE UN CARRITO NUEVO");
 		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);
 	}
