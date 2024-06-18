@@ -30,8 +30,10 @@ import com.unla.grupo8_oo2.services.implementation.UserService;
 import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Item;
 import com.unla.grupo8_oo2.entities.Producto;
+import com.unla.grupo8_oo2.entities.Stock;
 import com.unla.grupo8_oo2.entities.User;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
+
 
 @Controller
 @RequestMapping("/carrito")
@@ -60,7 +62,7 @@ public class CarritoController {
 		mAV.addObject("headerPragma", "no-cache");
 		mAV.addObject("headerExpires", "0");
 		System.out.println("ENTRE AL CARRITO");
-		System.out.println(lstItem);
+		//System.out.println(lstItem);
 		mAV.addObject("stock", stockService.traerMayoresACero());
 		mAV.addObject("lstItem", lstItem);
 		return mAV;
@@ -143,6 +145,7 @@ public class CarritoController {
 	public RedirectView create(RedirectAttributes redirectAttributes) {
 		System.out.println("/ESTOY DENTRO DEL CREATE");
 		System.out.println(lstItem);
+<<<<<<< HEAD
 
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userService.findUserByUsername(username);
@@ -161,6 +164,25 @@ public class CarritoController {
 		}
 
 		carritoService.insertOrUpdate(carrito);
+=======
+		Producto auxProducto = null;
+		Stock auxStock = null;
+		int stockActu=0;
+		
+		
+		 // Añadir cada item al carrito recuperado
+	    for (Item item : lstItem) {
+
+	        auxProducto= item.getProducto();
+	        auxStock= stockService.findByProducto(auxProducto);
+	        stockActu=auxStock.getStockActual()-item.getCantidad();
+	        auxStock.setStockActual(stockActu);
+	        stockService.insertOrUpdate(auxStock);
+	    }
+		lstItem = new ArrayList<Item>();
+			
+		
+>>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 		System.out.println("CREE UN CARRITO NUEVO");
 
 		redirectAttributes.addFlashAttribute("message", "Compra finalizada con éxito.");

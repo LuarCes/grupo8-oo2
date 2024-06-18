@@ -26,12 +26,17 @@ public class Item {
 	@Column(name="cantidad", unique=false, nullable=false)
 	private int cantidad;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="producto_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "producto_id", nullable = false)
 	private Producto producto;
 	
+<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name="carrito_id", nullable=true)
+=======
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="carrito_id", nullable=false)
+>>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 	private Carrito carrito;
 	
 	public Item(int cantidad, Producto producto) {
@@ -43,10 +48,12 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito=" + carrito + "]";
+		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + "]";
 	}
 	
-	
+	public String toStringConCarrito() {
+		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito " + carrito.getId()+ "]";
+	}
 	
 	
 }

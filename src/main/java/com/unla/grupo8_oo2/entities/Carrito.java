@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
@@ -43,9 +44,15 @@ public class Carrito {
 	private Set<Item> lstItem = new HashSet<>();
 	
 
+<<<<<<< HEAD
 	@OneToOne(fetch = FetchType.LAZY )
 	@JoinColumn(name="usuario_id", nullable= false)
 	private User user;
+=======
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private User user;
+>>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 
 	
 	public Carrito(LocalDate fecha, LocalTime hora, User cliente) {
@@ -60,6 +67,12 @@ public class Carrito {
 		this.hora = hora;
 		this.lstItem = lstItem;
 		this.user = cliente;
+	}
+
+	@Override
+	public String toString() {
+		return "Carrito [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", lstItem=" + lstItem+ ", user=" + user
+				+ "]";
 	}
 	
 }

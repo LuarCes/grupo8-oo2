@@ -1,5 +1,10 @@
 package com.unla.grupo8_oo2.services;
 
+<<<<<<< HEAD
+=======
+import java.time.LocalDate;
+import java.time.LocalTime;
+>>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +17,9 @@ public interface ICarritoService {
 	public List<Carrito> getAll();
 	//public Optional<Carrito> findById(int id) throws Exception;
 	public Carrito insertOrUpdate(List<Item> lstItem, String username);
+	public void addItemToCarrito(Carrito carrito, Item item);
+	public Carrito createCarrito(String username);
+	
 	//public boolean remove(int id);
 	public Optional<Carrito> findByUser(User user);
 	public void insertOrUpdate(Carrito carrito);

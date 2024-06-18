@@ -18,6 +18,12 @@ import com.unla.grupo8_oo2.repositories.IItemRepository;
 import com.unla.grupo8_oo2.repositories.IUserRepository;
 import com.unla.grupo8_oo2.services.ICarritoService;
 
+<<<<<<< HEAD
+=======
+import jakarta.transaction.Transactional;
+
+
+>>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 @Service("carritoService")
 public class CarritoService implements ICarritoService {
 	private final ICarritoRepository carritoRepository;
@@ -46,8 +52,9 @@ public class CarritoService implements ICarritoService {
 		return carritoRepository.findById(id);
 	}
 
-	@Override
+	@Transactional
 	public Carrito insertOrUpdate(List<Item> lstItem, String username) {
+<<<<<<< HEAD
 		 User user = userRepository.findByUsername(username);
 		    if (user == null) {
 		        throw new RuntimeException("Usuario no encontrado: " + username);
@@ -96,4 +103,43 @@ public class CarritoService implements ICarritoService {
 
 	}
 
+=======
+		//Set<Item> setItem = new  HashSet<>(lstItem);
+		User user = userRepository.findByUsername(username);
+		Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), user);
+		for (Item item : lstItem) {
+	        item.setCarrito(carrito);  // Establecer la relación bidireccional
+	        carrito.getLstItem().add(item);
+	    }
+		
+		for(Item item : lstItem) {
+			System.out.println(item.toStringConCarrito());
+		}
+		
+		return carritoRepository.save(carrito);
+	}
+
+	 	@Transactional
+	    public Carrito createCarrito(String username) {
+	        User user = userRepository.findByUsername(username);
+	        Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), user);
+	        return carritoRepository.save(carrito);
+	    }
+
+	 	
+	    @Transactional
+	    public void addItemToCarrito(Carrito carrito, Item item) {
+	    	//Carrito carrito = findByFechaAndHora(fecha, hora);
+	        item.setCarrito(carrito);
+	        carrito.getLstItem().add(item);
+	        itemRepository.save(item);
+	        carritoRepository.save(carrito);
+	    }
+
+
+		
+	
+	
+	
+>>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 }
