@@ -72,8 +72,8 @@
 		</div>
 
 		<!-- Carrito de Compras -->
-		<form th:action="@{/carrito/create}" method="post" id="carrito-form" th:object="${lstItem}">
-			<div class="cuadro-carrito">
+		<form class="cuadro-carrito" th:action="@{/carrito/create}" method="post" id="carrito-form" th:object="${lstItem}">
+			
 				<tr class="carrito" id="carrito">
 					<div class="header-carrito">
 						<h2>Tu Carrito</h2>
@@ -92,17 +92,18 @@
 				                
 				            </div>
 				        </div>
-						
 					</div>
+					
 					<div class="carrito-total">
 						<div class="fila">
 							<strong>Tu Total</strong>
 							<span class="carrito-precio-total" >0</span>
 						</div>
-						<button type="submit" class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+						<button type="submit" class="btn-pagar">Finalizar compra<i class="fa-solid fa-bag-shopping"></i> </button>
 					</div>
 				</tr>
-			</div>
+			
+		
 		</form>
 	</section>
 
