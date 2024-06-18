@@ -14,7 +14,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
 	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
-	
+
 </head>
 
 <body>
@@ -60,7 +60,7 @@
 					<th>Descripción</th>
 					<th>En Stock</th>
 					<th>Stock Crítico</th>
-					<th></th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -73,14 +73,40 @@
 					<td><span th:text="${s.producto.descripcion}" /></td>
 					<td><span th:text="${s.stockActual}" /></td>
 					<td><span th:text="${s.stockCritico}" /></td>
-					<td>
+					<!--<td>
 						<a th:href="@{/pedidosAprov}">Hacer pedido</a>
-					</td>
+					</td>-->
 				</tr>
 			</tbody>
 		</table>
 
+		<a th:href="@{/pedidosAprov}" class="boton-pedido" >
+			<button class="button">Hacer pedido</button>
+		</a>
+
+		
 	</main>
+
+
+	<script>
+		// JavaScript para cambiar el color de las celdas si el stock actual es menor que el stock crítico
+		document.addEventListener('DOMContentLoaded', function () {
+			const tableRows = document.querySelectorAll('table tbody tr');
+
+			tableRows.forEach(row => {
+				const stockActualCell = row.cells[5];
+				const stockCriticoCell = row.cells[6];
+
+				const stockActual = parseFloat(stockActualCell.textContent);
+				const stockCritico = parseFloat(stockCriticoCell.textContent);
+
+				if (stockActual < stockCritico) {
+					stockActualCell.style.backgroundColor = 'red';
+					stockCriticoCell.style.backgroundColor = 'red';
+				}
+			});
+		});
+	</script>
 
 </body>
 

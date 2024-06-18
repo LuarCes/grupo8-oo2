@@ -495,3 +495,42 @@
 }
 
 
+.boton-pedido{
+	margin-left: 5%;
+	margin-top: 15%;
+}
+
+.boton-buscar{
+	font-size: 15px;
+	margin-left: 10%;
+	margin-top: 1%;
+}
+
+.fechas{
+	margin-bottom: 2%;
+	padding-left: 2%;
+}
+
+.fechas-main{
+	padding-left: 2%;
+	padding-top: 2%;
+}
+
+.button{
+	font-size: 25px;	
+}
+
+table{
+	margin-bottom: 2%;
+	font-size: 25px;
+	margin-top:2%;
+	margin-left: 2%;
+}
+
+.eleccion-fechas{
+	width: 15%;
+	justify-content: space-between;
+	display: flex;
+	margin-left: 4%;
+	font-size: 25px;
+}

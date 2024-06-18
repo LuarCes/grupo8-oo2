@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
-import com.unla.grupo8_oo2.services.ILoteService;
 import com.unla.grupo8_oo2.services.IStockService;
 
 @Controller
@@ -28,5 +27,7 @@ public class StockController {
     }
 	
 	
+    
+    
 	
 }

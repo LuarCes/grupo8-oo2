@@ -27,6 +27,7 @@ public class ViewRouteHelper {
 	public final static String LOTE = "lote/index";
 	public final static String LOTE_NEW = "lote/new";
 	public final static String LOTE_UPDATE = "lote/update";
+	public final static String INFORME = "lote/informe";
 	
 	//APROVISIONAMIENTO
 	public final static String APROV = "pedidosAprov/index";
@@ -35,6 +36,7 @@ public class ViewRouteHelper {
 	
 	//REPORTES STOCK
 	public final static String STOCK = "stock/index";
+	
 	
 	//CARRITO
 	public final static String CARRITO = "carrito/index";
