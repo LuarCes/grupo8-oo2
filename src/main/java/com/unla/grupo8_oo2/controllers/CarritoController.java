@@ -1,12 +1,17 @@
 package com.unla.grupo8_oo2.controllers;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +26,10 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.unla.grupo8_oo2.services.ICarritoService;
 import com.unla.grupo8_oo2.services.IStockService;
 import com.unla.grupo8_oo2.services.implementation.ProductoService;
+import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Item;
 import com.unla.grupo8_oo2.entities.Producto;
+import com.unla.grupo8_oo2.entities.User;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 
 @Controller
@@ -135,7 +142,10 @@ public class CarritoController {
 	public RedirectView create() {
 		System.out.println("/ESTOY DENTRO DEL CREATE");
 		System.out.println(lstItem);
-		//carritoService.insertOrUpdate(lstItem);
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		carritoService.insertOrUpdate(lstItem, username);
+		System.out.println("CREE UN CARRITO NUEVO");
 		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);
 	}
 	
