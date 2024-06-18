@@ -52,10 +52,11 @@
 				<input type="number" id="cantidad" th:field="*{cantidad}" min="0" required />
 			</div>
 			<div>
-	           <label for="producto">Producto:</label>
-	           <select id="producto" th:field="*{producto.id}">
-	               <option th:each="stock : ${productosEnStock}" th:value="${stock.producto.id}" th:text="${stock.producto.nombre}">...</option>
-	           </select>
+				<label for="producto">Producto:</label>
+					<select id="producto" th:field="*{producto}">
+						<option th:each="producto : ${productosEnStock}" th:value="${producto.id}"
+							th:text="${producto.nombre}">...</option>
+					</select>
 	       </div>
 			<div>
 				<label for="proveedorNombre">Proveedor:</label>

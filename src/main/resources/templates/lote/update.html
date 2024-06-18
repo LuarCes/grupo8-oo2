@@ -63,13 +63,10 @@
 		        var inputAprobado = document.getElementById('inputAprobado');
 		        var btnAprobado = document.getElementById('btnAprobado');
 
-		        // Cambiar el valor del campo oculto
 		        inputAprobado.value = inputAprobado.value === 'true' ? 'false' : 'true';
 
-		        // Actualizar el texto del botón según el nuevo valor
 		        btnAprobado.innerText = inputAprobado.value === 'true' ? 'Aprobado' : 'Aprobar';
 				
-				// Enviar el formulario de forma programática
 				 document.getElementById('loteForm').submit();
 		    }
 		</script>
