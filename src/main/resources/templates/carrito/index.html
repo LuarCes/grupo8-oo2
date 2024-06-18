@@ -15,6 +15,7 @@
 
 	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 
+	<script src="/js/carrito.js" async></script>
 
 </head>
 
@@ -23,35 +24,35 @@
 
 	<header class="encabezado">
 
-			<nav class="header-nav">
-				<div class="logo-container">
-					<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
-				</div>
+		<nav class="header-nav">
+			<div class="logo-container">
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+			</div>
 
-				<div class="cerrar-sesion">
-					<div class="iconos">
-						<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping"></i></a>
-					</div>
-					<div class="logOut">
-						<a th:href="@{/logout}">
-							<p>LogOut</p>
-						</a>
-					</div>
+			<div class="cerrar-sesion">
+				<div class="iconos">
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping"></i></a>
 				</div>
-			</nav>
-			<nav class="navegador">
-				<ul class="opciones">
-					<li><a th:href="@{/index}">Inicio</a></li>
-					<li><a th:href="@{/producto}">Productos</a></li>
-					<li><a th:href="@{/lote}">Lotes</a></li>
-					<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
-					<li><a th:href="@{/stock}">Stock</a></li>
-				</ul>
-			</nav>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<nav class="navegador">
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Inicio</a></li>
+				<li><a th:href="@{/producto}">Productos</a></li>
+				<li><a th:href="@{/lote}">Lotes</a></li>
+				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+				<li><a th:href="@{/stock}">Stock</a></li>
+			</ul>
+		</nav>
 
-		</header>
-	
-	
+	</header>
+
+
 	<!-- 
 		<main>
 		      <h1>Carrito de Compras</h1>
@@ -66,117 +67,48 @@
 		</main> -->
 
 
-		<section class="contenedor">
-		       <!-- Contenedor de elementos -->
-		       <div class="contenedor-items">
-					            
-		           <div class="item">
-		               <span class="titulo-item">Box Engasse</span>
-		               <img src="img/boxengasse.png" alt="" class="img-item">
-		               <span class="precio-item">$15.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">English Horse</span>
-		               <img src="img/englishrose.png" alt="" class="img-item">
-		               <span class="precio-item">$25.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">Knock Nap</span>
-		               <img src="img/knocknap.png" alt="" class="img-item">
-		               <span class="precio-item">$35.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">La Night</span>
-		               <img src="img/lanight.png" alt="" class="img-item">
-		               <span class="precio-item">$18.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">Silver All</span>
-		               <img src="img/silverall.png" alt="" class="img-item">
-		               <span class="precio-item">$32.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">Skin Glam</span>
-		               <img src="img/skinglam.png" alt="" class="img-item">
-		               <span class="precio-item">$18.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">Midimix</span>
-		               <img src="img/midimix.png" alt="" class="img-item">
-		               <span class="precio-item">$54.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">Sir Blue</span>
-		               <img src="img/sirblue.png" alt="" class="img-item">
-		               <span class="precio-item">$32.000</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		           <div class="item">
-		               <span class="titulo-item">Middlesteel</span>
-		               <img src="img/middlesteel.png" alt="" class="img-item">
-		               <span class="precio-item">$42.800</span>
-		               <button class="boton-item">Agregar al Carrito</button>
-		           </div>
-		       </div> -->
-		       <!-- Carrito de Compras -->
-		           <div class="carrito" id="carrito">
-		           <div class="header-carrito">
-		               <h2>Tu Carrito</h2>
-		           </div>
+	<section class="contenedor">
+		<!-- Contenedor de elementos -->
+		<div class="header-productos">
+			<h2>Productos</h2>
+		</div>
+		<div class="contenedor-items">
+			<tr th:each="producto : ${productos}">
+				<div class="item">
+					<span class="titulo-item" th:text="${producto.nombre}"></span>
+					<span class="precio-item" th:text="${producto.precioVenta}"></span>
+					<button class="boton-item">Agregar al Carrito</button>
+				</div>
+			</tr>
+		</div>
 
-		           <div class="carrito-items">
-		           
-		               <div class="carrito-item">
-		                   <img src="img/boxengasse.png" width="80px" alt="">
-		                   <div class="carrito-item-detalles">
-		                       <span class="carrito-item-titulo">Box Engasse</span>
-		                       <div class="selector-cantidad">
-		                           <i class="fa-solid fa-minus restar-cantidad"></i>
-		                           <input type="text" value="1" class="carrito-item-cantidad" disabled>
-		                           <i class="fa-solid fa-plus sumar-cantidad"></i>
-		                       </div>
-		                       <span class="carrito-item-precio">$15.000,00</span>
-		                   </div>
-		                  <span class="btn-eliminar">
-		                       <i class="fa-solid fa-trash"></i>
-		                  </span>
-		               </div>
-		               <div class="carrito-item">
-		                   <img src="img/skinglam.png" width="80px" alt="">
-		                   <div class="carrito-item-detalles">
-		                       <span class="carrito-item-titulo">Skin Glam</span>
-		                       <div class="selector-cantidad">
-		                           <i class="fa-solid fa-minus restar-cantidad"></i>
-		                           <input type="text" value="3" class="carrito-item-cantidad" disabled>
-		                           <i class="fa-solid fa-plus sumar-cantidad"></i>
-		                       </div>
-		                       <span class="carrito-item-precio">$18.000,00</span>
-		                   </div>
-		                  <button class="btn-eliminar">
-		                       <i class="fa-solid fa-trash"></i>
-		                  </button>
-		               </div>
-		            
-		          </div>
-		           <div class="carrito-total">
-		               <div class="fila">
-		                   <strong>Tu Total</strong>
-		                   <span class="carrito-precio-total">
-		                       $120.000,00
-		                   </span>
-		               </div>
-		               <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
-		           </div>
-		       </div>
-		   </section> 
-	  
+			<!-- Carrito de Compras -->
+			<div class="cuadro-carrito">
+			<tr class="carrito" id="carrito">
+				<div class="header-carrito">
+					<h2>Tu Carrito</h2>
+				</div>
+
+				<div class="carrito-items">
+
+					<div class="carrito-item">
+
+					</div>
+
+				</div>
+				<div class="carrito-total">
+					<div class="fila">
+						<strong>Tu Total</strong>
+						<span class="carrito-precio-total">
+							$0,00
+						</span>
+					</div>
+					<button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+				</div>
+				</div>
+		
+	</section>
+
 </body>
 
 </html>
