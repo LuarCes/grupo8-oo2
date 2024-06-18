@@ -40,6 +40,7 @@ public class PedidoAprovController {
     public ModelAndView pedidosAprov() {
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.APROV); 
         mAV.addObject("pedidos", pedidoAprovService.getAll());
+        System.out.println(pedidoAprovService.getAll());
         return mAV;
     }
 	

@@ -35,9 +35,9 @@ public class PedidoAprov {
 	@JoinColumn(name="idProducto", nullable=true) //Revisar
 	private Producto producto;
 	
-	@OneToOne(optional=false)
-	@JoinColumn(name = "proveedor_id")
-	private Proveedor proveedor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="proveedor_id", nullable=false) // Relación muchos a uno con Proveedor
+    private Proveedor proveedor;
 	
 	@Column(name="fechaPedido", unique=false, nullable=false)
 	private LocalDate fechaPedido;
@@ -56,6 +56,13 @@ public class PedidoAprov {
 		this.fechaPedido = fechaPedido;
 		this.total = total;
 		this.proveedor = proveedor;
+	}
+
+	@Override
+	public String toString() {
+		return "PedidoAprov [id=" + id + ", cantidad=" + cantidad + ", lote=" + lote + ", producto=" + producto
+				+ ", proveedor=" + proveedor + ", fechaPedido=" + fechaPedido + ", total=" + total + ", entregado="
+				+ entregado + "]";
 	}
 	
 	

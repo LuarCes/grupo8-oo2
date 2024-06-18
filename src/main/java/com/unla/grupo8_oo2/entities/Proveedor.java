@@ -1,10 +1,15 @@
 package com.unla.grupo8_oo2.entities;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,11 +25,11 @@ public class Proveedor {
 	@Column(name="nombre", unique=false, nullable=false, length=20)
 	private String nombre;
 
-	@Column(name="telefono", unique=true, nullable=false, length=10)
+	@Column(name="telefono", unique=false, nullable=false, length=10)
 	private String telefono;
 	
-	@OneToOne(mappedBy = "proveedor")
-    private PedidoAprov pedidoAprov;
+    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL)
+    private List<PedidoAprov> pedidosAprov;
 	
 	public Proveedor(String nombre, String telefono) {
 		this.nombre = nombre;
