@@ -1,9 +1,12 @@
 package com.unla.grupo8_oo2.controllers;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 import com.unla.grupo8_oo2.services.IStockService;
@@ -21,9 +24,26 @@ public class StockController {
 
     @GetMapping("")
     public ModelAndView stock() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.STOCK); 
-        mAV.addObject("stock", stockService.getAll());
-        return mAV;
+    	
+    	ModelAndView mav = new ModelAndView();
+
+        // Obtener la información de autenticación del contexto de seguridad
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        
+        // Verificar si el usuario tiene el rol ROLE_ADMIN
+        boolean isAdmin = auth != null && auth.getAuthorities().stream()
+                .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
+
+        if (isAdmin) {
+            mav.setViewName(ViewRouteHelper.STOCK);
+            mav.addObject("stock", stockService.getAll());
+        } else {
+            // Si no es administrador, redirigir a la página de no administrador
+            mav.setView(new RedirectView(ViewRouteHelper.NOT_ADMIN));
+        }
+
+        return mav;
+    	
     }
 	
 	

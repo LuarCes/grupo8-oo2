@@ -41,4 +41,7 @@ public class ViewRouteHelper {
 	//CARRITO
 	public final static String CARRITO = "carrito/index";
 	
+	//notAdmin
+	public final static String NOT_ADMIN= "not_admin/index";
+	
 }

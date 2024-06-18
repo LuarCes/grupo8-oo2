@@ -52,7 +52,7 @@
 	<main class="fechas-main">
 		<div>
 			<h1>
-				Consultá por lotes en rango de fechas :
+				Consultá lotes en rango de fechas :
 			</h1>
 			<form method="get" action="/lote/consulta-fechas" class="fechas">
 				<div class="eleccion-fechas">
@@ -67,6 +67,40 @@
 				</div>
 				<button type="submit" class="boton-buscar">Buscar</button>
 			</form>
+
+			<h1>
+				Consultá lotes por Estado :
+			</h1>
+			<form method="get" action="/lote/consulta-por-estado" class="fechas">
+				<div class="eleccion-estado">
+					<div class="eleccion-fechas">
+						<p>Estado :</p>
+						<select name="estado" id="estado">
+							<option value="APROBADO">Aprobado</option>
+							<option value="NO_APROBADO">No Aprobado</option>
+						</select>
+					</div>
+				</div>
+				<button type="submit" class="boton-buscar">Buscar</button>
+			</form>
+
+
+			<h1>
+				Consultá lotes por Producto :
+			</h1>
+			<form method="get" action="/lote/consulta-por-producto" class="fechas">
+			    <div class="eleccion-estado">
+			        <div class="eleccion-fechas">
+			            <p>Producto:</p>
+			            <select name="productoId" id="productoId">
+			                <option th:each="producto : ${productos}" th:value="${producto.id}"
+			                        th:text="${producto.nombre}">...</option>
+			            </select>
+			        </div>
+			    </div>
+			    <button type="submit" class="boton-buscar">Buscar</button>
+			</form>
+
 			<div class="rtado-fechas">
 				<h2>Resultados de la Búsqueda:</h2>
 				<table border="1px">

@@ -18,5 +18,7 @@ public interface ILoteService {
 	List<Lote> findLotesByFechaRecepcion(LocalDate fechaRecepcion);
 	List<Lote> findLotesByProducto(Producto producto);
 	List<Lote> findLotesByFechaRecepcionBetween(LocalDate startDate, LocalDate endDate);
+	List<Lote> findByAprobado(boolean estado);
+	public List<Lote> findByProductoId(int productoId);
 	
 }

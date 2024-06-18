@@ -1,7 +1,10 @@
 package com.unla.grupo8_oo2.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Stock;
+import com.unla.grupo8_oo2.helpers.UserUtil;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 import com.unla.grupo8_oo2.services.IProductoService;
 import com.unla.grupo8_oo2.services.IStockService;
@@ -30,12 +34,29 @@ public class ProductoController {
 		this.stockService = stockService;
 	}
 	
+	
 
     @GetMapping("")
     public ModelAndView producto() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.PRODUCTO);
-        mAV.addObject("productos", productoService.getAll());
-        return mAV;
+    	
+    	 ModelAndView mav = new ModelAndView();
+
+         // Obtener la información de autenticación del contexto de seguridad
+         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+         
+         // Verificar si el usuario tiene el rol ROLE_ADMIN
+         boolean isAdmin = auth != null && auth.getAuthorities().stream()
+                 .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
+
+         if (isAdmin) {
+             mav.setViewName(ViewRouteHelper.PRODUCTO);
+             mav.addObject("productos", productoService.getAll());
+         } else {
+             // Si no es administrador, redirigir a la página de no administrador
+             mav.setView(new RedirectView(ViewRouteHelper.NOT_ADMIN));
+         }
+
+         return mav;
     }
 	
 	
@@ -85,6 +106,15 @@ public class ProductoController {
 	@GetMapping("/")
 	public RedirectView redirectToHomeIndex() {
 		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
+	}
+	
+	
+	
+	@GetMapping("/consulta-por-producto")
+	public ModelAndView consultaPorProductoForm() {
+	    ModelAndView mAV = new ModelAndView(ViewRouteHelper.INFORME); 
+	    mAV.addObject("productos", productoService.getAll());
+	    return mAV;
 	}
 	
 }

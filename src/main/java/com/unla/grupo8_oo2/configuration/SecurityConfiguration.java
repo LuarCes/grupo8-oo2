@@ -34,13 +34,10 @@ public class SecurityConfiguration {
 				.cors(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(auth -> {
 					auth.requestMatchers("/css/*", "/imgs/*", "/js/*", "/vendor/bootstrap/css/*",
-                            "/vendor/jquery/*", "/vendor/bootstrap/js/*")
+                            "/vendor/jquery/*", "/vendor/bootstrap/js/*", "/carrito/*","/home/*")
                 .permitAll();
 
-					auth.requestMatchers("/carrito/*") // Acceso para ADMIN y USER
-                .hasAnyRole("ADMIN", "USER");
-
-					auth.requestMatchers("/home/*", "/lote/*", "/pedidoAprov/*", "/producto/*", "/stock/*") // Acceso solo para ADMIN
+					auth.requestMatchers("/lote/*", "/pedidoAprov/*", "/producto/*", "/stock/*") // Acceso solo para ADMIN
                 .hasRole("ADMIN");
 
 					auth.anyRequest().authenticated();

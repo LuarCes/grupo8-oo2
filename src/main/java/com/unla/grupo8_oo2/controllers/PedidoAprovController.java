@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,10 +46,21 @@ public class PedidoAprovController {
 
 	@GetMapping("")
     public ModelAndView pedidosAprov() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.APROV); 
-        mAV.addObject("pedidos", pedidoAprovService.getAll());
-        //System.out.println(pedidoAprovService.getAll());
-        return mAV;
+		
+		ModelAndView mav = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    
+        boolean isAdmin = auth != null && auth.getAuthorities().stream()
+                .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
+
+        if (isAdmin) {
+            mav.setViewName(ViewRouteHelper.APROV);
+            mav.addObject("pedidos", pedidoAprovService.getAll());
+        } else {
+            mav.setView(new RedirectView(ViewRouteHelper.NOT_ADMIN));
+        }
+
+        return mav;
     }
 	
 

@@ -61,6 +61,14 @@ public class LoteService implements ILoteService {
 		return loteRepository.findByFechaRecepcionBetween(inicio, fin);
 	}
     
-    
+	@Override
+	public List<Lote> findByAprobado(boolean estado) {
+		return loteRepository.findByAprobado(estado);
+	}
+
+	public List<Lote> findByProductoId(int productoId) {
+		return loteRepository.findByProductoId(productoId);
+	}
+	
 	
 }

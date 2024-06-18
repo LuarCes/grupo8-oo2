@@ -23,5 +23,11 @@ public interface ILoteRepository extends JpaRepository<Lote, Serializable>{
 	List<Lote> findByProducto(Producto producto);
 	
 	List<Lote> findByFechaRecepcionBetween(LocalDate inicio, LocalDate fin);
+
+	List<Lote> findByAprobado(boolean estado);
+
+
+	public abstract List<Lote> findByProductoId(int productoId);
+
 	
 }
