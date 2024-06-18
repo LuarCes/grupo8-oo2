@@ -31,7 +31,7 @@ public class Item {
 	private Producto producto;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="carrito_id", nullable=true)
+	@JoinColumn(name="carrito_id", nullable=false)
 	private Carrito carrito;
 	
 	public Item(int cantidad, Producto producto) {
@@ -43,10 +43,12 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito=" + carrito + "]";
+		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + "]";
 	}
 	
-	
+	public String toStringConCarrito() {
+		return "\nItem [id=" + id + ", cantidad=" + cantidad + ", producto=" + producto + ", carrito " + carrito.getId()+ "]";
+	}
 	
 	
 }

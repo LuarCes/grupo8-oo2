@@ -58,7 +58,7 @@ public class CarritoController {
 	    mAV.addObject("headerPragma", "no-cache"); 
 	    mAV.addObject("headerExpires", "0"); 
 		System.out.println("ENTRE AL CARRITO");
-		System.out.println(lstItem);
+		//System.out.println(lstItem);
 		mAV.addObject("stock", stockService.traerMayoresACero());
 		mAV.addObject("lstItem", lstItem);
 		return mAV;
@@ -144,7 +144,14 @@ public class CarritoController {
 		System.out.println(lstItem);
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		
-		carritoService.insertOrUpdate(lstItem, username);
+		Carrito c = carritoService.createCarrito(username);
+		
+		 // Añadir cada item al carrito recuperado
+	    for (Item item : lstItem) {
+	        carritoService.addItemToCarrito(c, item);
+	    }
+		lstItem = null;
+	    
 		System.out.println("CREE UN CARRITO NUEVO");
 		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);
 	}

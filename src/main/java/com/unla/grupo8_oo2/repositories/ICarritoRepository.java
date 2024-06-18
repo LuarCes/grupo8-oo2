@@ -2,6 +2,7 @@ package com.unla.grupo8_oo2.repositories;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +24,7 @@ public interface ICarritoRepository extends JpaRepository<Carrito, Serializable>
 	
 	public abstract List<Carrito> findAll();
 	
+	public abstract Carrito findByFechaAndHora(LocalDate fecha, LocalTime hora);
 	//public abstract Optional<Carrito> findById(int id);
 	
 	//@Query("SELECT c FROM Carrito c WHERE c.fecha = (:fecha)")
