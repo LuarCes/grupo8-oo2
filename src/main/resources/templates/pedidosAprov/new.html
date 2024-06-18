@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-</html>
 <html lang="en">
 
 <head>
@@ -10,11 +8,14 @@
 	<title>COMPOTECH - Nuevo Producto</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
 	<link href="/css/productoStyle.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+	
 </head>
 
 <body>
@@ -27,9 +28,14 @@
 			</div>
 
 			<div class="cerrar-sesion">
-				<a th:href="@{/logout}">
-					<p>LogOut</p>
-				</a>
+				<div class="iconos">
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
@@ -53,11 +59,11 @@
 			</div>
 			<div>
 				<label for="producto">Producto:</label>
-					<select id="producto" th:field="*{producto}">
-						<option th:each="producto : ${productosEnStock}" th:value="${producto.id}"
-							th:text="${producto.nombre}">...</option>
-					</select>
-	       </div>
+				<select id="producto" th:field="*{producto}">
+					<option th:each="producto : ${productosEnStock}" th:value="${producto.id}"
+						th:text="${producto.nombre}">...</option>
+				</select>
+			</div>
 			<div>
 				<label for="proveedorNombre">Proveedor:</label>
 				<select id="proveedorNombre" th:field="*{proveedor}">

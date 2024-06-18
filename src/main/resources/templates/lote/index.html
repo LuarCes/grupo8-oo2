@@ -7,11 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>COMPOTECH - Lote</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -25,7 +27,7 @@
 
 			<div class="cerrar-sesion">
 				<div class="iconos">
-					<a th:href="@{/carrito}">Carrito</a>
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
 				</div>
 				<div class="logOut">
 					<a th:href="@{/logout}">
@@ -46,47 +48,40 @@
 	</header>
 
 	<main>
-			</div>
-		
-			<table border="1px">
-						<thead>
-							<tr>
-								<th>Cantidad Recibida</th>
-								<th>Fecha Recepcion</th>
-								<th>Precio de Compra</th>
-								<th>Producto</th>
-								<th>Aprobado</th>
-								<th>Comentario</th>
-								<th>Ver</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="lote : ${lotes}">
-								<td><span th:text="${lote.cantRecibida}" /></td>
-								<td><span th:text="${lote.fechaRecepcion}" /></td>
-								<td><span th:text="${lote.precioCompra}" /></td>
-								<td><span th:text="${lote.producto.nombre}" /></td>
-								<td><span th:text="${lote.aprobado ? 'Aprobado' : 'No Aprobado'}">Aprobado</span></td>
-								<td><span th:text="${lote.comentario}" /></td>
-								<td>
-									<a th:href="@{/lote/{id}(id=${lote.id})}" th:if="${!lote.aprobado}">Ver</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-			
-			
-			
-			
-		
+		</div>
+
+		<table border="1px">
+			<thead>
+				<tr>
+					<th>Cantidad Recibida</th>
+					<th>Fecha Recepcion</th>
+					<th>Precio de Compra</th>
+					<th>Producto</th>
+					<th>Aprobado</th>
+					<th>Comentario</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lote : ${lotes}">
+					<td><span th:text="${lote.cantRecibida}" /></td>
+					<td><span th:text="${lote.fechaRecepcion}" /></td>
+					<td><span th:text="${lote.precioCompra}" /></td>
+					<td><span th:text="${lote.producto.nombre}" /></td>
+					<td><span th:text="${lote.aprobado ? 'Aprobado' : 'No Aprobado'}">Aprobado</span></td>
+					<td><span th:text="${lote.comentario}" /></td>
+					<td>
+						<a th:href="@{/lote/{id}(id=${lote.id})}" th:if="${!lote.aprobado}">Ver</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+
+
 	</main>
-
-
-	<footer>
-
-		<h1>Aca un lindo footer</h1>
-
-	</footer>
 
 </body>
 

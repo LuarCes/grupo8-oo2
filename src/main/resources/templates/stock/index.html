@@ -7,12 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>COMPOTECH - Stock</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
-
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+	
 </head>
 
 <body>
@@ -25,7 +27,7 @@
 
 			<div class="cerrar-sesion">
 				<div class="iconos">
-					<a th:href="@{/carrito}">Carrito</a>
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
 				</div>
 				<div class="logOut">
 					<a th:href="@{/logout}">
@@ -58,7 +60,7 @@
 					<th>Descripción</th>
 					<th>En Stock</th>
 					<th>Stock Crítico</th>
-					<th>Hacer pedido</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -72,20 +74,13 @@
 					<td><span th:text="${s.stockActual}" /></td>
 					<td><span th:text="${s.stockCritico}" /></td>
 					<td>
-						<a th:href="@{/pedidosAprov}">hacer pedido</a>
+						<a th:href="@{/pedidosAprov}">Hacer pedido</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 
 	</main>
-
-
-	<footer>
-
-		<h1>Aca un lindo footer</h1>
-
-	</footer>
 
 </body>
 
