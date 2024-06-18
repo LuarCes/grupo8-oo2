@@ -21,9 +21,7 @@
 
 <body>
 
-
 	<header class="encabezado">
-
 		<nav class="header-nav">
 			<div class="logo-container">
 				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
@@ -49,7 +47,6 @@
 				<li><a th:href="@{/stock}">Stock</a></li>
 			</ul>
 		</nav>
-
 	</header>
 
 	<section class="contenedor">
@@ -62,13 +59,14 @@
 				<div class="item">
 					<span class="titulo-item" th:text="${stock.producto.nombre}"></span>
 					<span class="precio-item" th:text="${stock.producto.precioVenta}"></span>
-					<button class="boton-item" data-producto-id="${stock.producto.id}">Agregar al Carrito</button>
+					
+					<button class="boton-item" data-producto-id="${stock.producto.id}" th:data-stockactual="${stock.stockActual}">Agregar al Carrito</button>
 				</div>
 			</tr>
 		</div>
 
-			<!-- Carrito de Compras -->
-			<div class="cuadro-carrito">
+		<!-- Carrito de Compras -->
+		<div class="cuadro-carrito">
 			<tr class="carrito" id="carrito">
 				<div class="header-carrito">
 					<h2>Tu Carrito</h2>
@@ -81,9 +79,7 @@
 				<div class="carrito-total">
 					<div class="fila">
 						<strong>Tu Total</strong>
-						<span class="carrito-precio-total">
-							$0,00
-						</span>
+						<span class="carrito-precio-total">$0,00</span>
 					</div>
 					<button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
 				</div>
