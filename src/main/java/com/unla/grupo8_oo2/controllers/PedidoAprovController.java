@@ -1,5 +1,8 @@
 package com.unla.grupo8_oo2.controllers;
 
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import com.unla.grupo8_oo2.entities.PedidoAprov;
 import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Proveedor;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
+import com.unla.grupo8_oo2.services.ILoteService;
 import com.unla.grupo8_oo2.services.IPedidoAprovService;
 import com.unla.grupo8_oo2.services.IProveedorService;
 import com.unla.grupo8_oo2.services.IStockService;
@@ -27,20 +31,22 @@ public class PedidoAprovController {
 	private IPedidoAprovService pedidoAprovService;
 	private IProveedorService proveedorService;
 	private IStockService stockService;
+	private ILoteService loteService;
 
 	public PedidoAprovController(IPedidoAprovService pedidoAprovService, IProveedorService proveedorService,
-			IStockService stockService) {
+			IStockService stockService, ILoteService loteService) {
 		super();
 		this.pedidoAprovService = pedidoAprovService;
 		this.proveedorService = proveedorService;
 		this.stockService = stockService;
+		this.loteService = loteService;
 	}
 
 	@GetMapping("")
     public ModelAndView pedidosAprov() {
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.APROV); 
         mAV.addObject("pedidos", pedidoAprovService.getAll());
-        System.out.println(pedidoAprovService.getAll());
+        //System.out.println(pedidoAprovService.getAll());
         return mAV;
     }
 	
@@ -72,8 +78,31 @@ public class PedidoAprovController {
         pedidoAprov.setProveedor(proveedor);
         System.out.println(pedidoAprov);
         pedidoAprovService.insertOrUpdate(pedidoAprov);
-
+        
         return new RedirectView(ViewRouteHelper.APROV_ROOT);
     }
+    
+	@PostMapping("{id}")
+	public RedirectView get(@ModelAttribute("p") PedidoAprov p) throws Exception {
+			PedidoAprov pedidoAprov = pedidoAprovService.findById(p.getId()).get();
+			pedidoAprov.setEntregado(true);
+			
+		 	Set<PedidoAprov> setAprov = new HashSet<PedidoAprov>();
+	        setAprov.add(pedidoAprov);
+	        
+	        double precioProducto = pedidoAprov.getProducto().getCosto();
+	        int cantidad = pedidoAprov.getCantidad();
+	        double total = precioProducto * cantidad;
+	        
+	        int stockActual = stockService.findByProducto(pedidoAprov.getProducto()).getStockActual();
+	        
+	        Lote lote = new Lote(cantidad, LocalDate.now(), setAprov, total, pedidoAprov.getProducto(), stockActual);
+	        loteService.insertOrUpdate(lote);
+	        pedidoAprovService.insertOrUpdate(pedidoAprov);
+		return new RedirectView(ViewRouteHelper.APROV_ROOT);
+	}
+    
+    
+    
     
 }

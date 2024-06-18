@@ -50,15 +50,15 @@ public class Lote {
 	private String comentario;
 
 	public Lote(int cantRecibida, LocalDate fechaRecepcion, Set<PedidoAprov> pedido, double precioCompra,
-			Producto producto, int cantActual, boolean aprobado, String comentario) {
+			Producto producto, int cantActual) {
 		super();
 		this.cantRecibida = cantRecibida;
 		this.fechaRecepcion = fechaRecepcion;
 		this.pedido = pedido;
 		this.precioCompra = precioCompra;
 		this.producto = producto;
-		this.aprobado = aprobado;
-		this.comentario = comentario;
+		this.aprobado = false;
+		this.comentario = null;
 	}
 
 	

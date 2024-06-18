@@ -67,7 +67,7 @@
 					<th>Proveedor</th>
 					<th>Total</th>
 					<th>Entregado</th>
-					<th>ToDo</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -77,9 +77,13 @@
 					<td><span th:text="${p.cantidad}" /></td>
 					<td><span th:text="${p.proveedor.nombre}" /></td>
 					<td><span th:text="${p.total}" />$</td>
-					<td><span th:text="${p.entregado}" /></td>
+					<td><span th:text="${p.entregado ? 'Entregado' : 'Pendiente'}" /></td>
 					<td>
-						<a>Ver</a>
+						<td th:if="${!p.entregado}">
+				           <form action="#" th:action="@{/pedidosAprov/{id}(id=${p.id})}" th:object="${p}" method="post">
+				               <input type="submit" value="Aprobar" />
+				           </form>
+				       </td>
 					</td>
 				</tr>
 			</tbody>
