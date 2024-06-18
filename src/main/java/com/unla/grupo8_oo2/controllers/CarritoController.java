@@ -44,6 +44,8 @@ public class CarritoController {
 	
 	@GetMapping("")
 	public ModelAndView carrito() {
+		System.out.println("ENTRE AL CARRITO");
+		System.out.println(lstItem);
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRITO);
 		mAV.addObject("stock", stockService.traerMayoresACero());
 		mAV.addObject("lstItem", lstItem);
@@ -57,24 +59,41 @@ public class CarritoController {
 	            Item item = new Item(cantidad, producto);
 	            item.setId(lstItem.size() + 1);
 	            lstItem.add(item);
+	            System.out.println("Producto agregado al carrito");
 	            redirectAttributes.addFlashAttribute("message", "Producto agregado al carrito");
 	        } else {
+	        	System.out.println("Producto no encontrado");
 	            redirectAttributes.addFlashAttribute("error", "Producto no encontrado");
 	        }
 	        return "redirect:/carrito";
 	    }
 	
 	 @PostMapping("/eliminar/{id}")
-	    public RedirectView eliminarItem(@PathVariable("itemId") int itemId, RedirectAttributes redirectAttributes) {
-		 System.out.println("ENTRE AL ELIMINAR");
-		 if (itemId >= 0 && itemId < lstItem.size()) {
-		        lstItem.remove(itemId);
-		        redirectAttributes.addFlashAttribute("message", "Producto eliminado del carrito");
-		    } else {
-		        redirectAttributes.addFlashAttribute("error", "Ítem no encontrado en el carrito");
-		    }
-	        return new RedirectView(ViewRouteHelper.CARRITO);
-	    }
+	 public String eliminarItem(@PathVariable("id") int itemId, RedirectAttributes redirectAttributes) {
+	     System.out.println("ENTRE AL ELIMINAR");
+	     System.out.println("Ítem con id " + itemId + " a eliminar");
+	     
+	     // Buscar el ítem por su ID
+	     Item itemToRemove = null;
+	     for (Item item : lstItem) {
+	         if (item.getId() == itemId) {
+	             itemToRemove = item;
+	             break;
+	         }
+	     }
+
+	     if (itemToRemove != null) {
+	         lstItem.remove(itemToRemove);
+	         System.out.println(lstItem);
+	         System.out.println("Producto eliminado del carrito");
+	         redirectAttributes.addFlashAttribute("message", "Producto eliminado del carrito");
+	     } else {
+	         System.out.println("Ítem con id" + itemId + " no encontrado en el carrito");
+	         redirectAttributes.addFlashAttribute("error", "Ítem no encontrado en el carrito");
+	     }
+	     
+	     return "redirect:/carrito";
+	 }
 	 
 	@PostMapping("/create")
 	public RedirectView create() {
