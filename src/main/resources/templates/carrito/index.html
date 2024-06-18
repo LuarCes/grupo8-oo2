@@ -94,6 +94,8 @@
 		</nav>
 	</header>
 
+	
+	<main id="carrito-main">
 	<section class="contenedor">
 	    <!-- Contenedor de elementos -->
 	    <div class="header-productos">
@@ -114,7 +116,7 @@
 	            </div>
 	        </tr>
 	    </div>
-
+		
 		<!-- Carrito de Compras -->
 		    <div class="cuadro-carrito">
 		        <div class="carrito">
@@ -123,14 +125,14 @@
 		            </div>
 		            <div class="carrito-items">
 		                <!-- Aquí se mostrarán los elementos del carrito -->
-		                <div th:each="item : ${lstItem}">
+		                <div th:each="item : ${lstItem}" class="contenedor-items">
 		                    <div class="carrito-item">
 		                        <span class="carrito-item-titulo" th:text="${item.producto.nombre}"></span>
 		                        <span class="carrito-item-precio" th:text="${item.producto.precioVenta}"></span>
 		                        <span class="carrito-item-cantidad" th:text="${item.cantidad}"></span>
+								<button type="button" class="btn-eliminar" th:data-item-id="${item.id}"><i class="fa-solid fa-trash-can"></i></button>
 								<input type="hidden" name="itemId" th:value="${item.id}"/>
-								<button type="button" class="btn-eliminar" th:data-item-id="${item.id}">Eliminar</button>
-		                       
+								
 		                    </div>
 		                </div>
 		            </div>
@@ -142,12 +144,15 @@
 		                    <span class="carrito-precio-total">0</span>
 		                </div>
 		                <button type="submit" class="btn-pagar">Finalizar compra<i class="fa-solid fa-bag-shopping"></i> </button>
+						<div th:if="${message}">
+						       <p th:text="${message}"></p>
+						   </div>
 		            </div>
 		        </form>
 		    </div>
-	</section>
 
-	
+			</section>
+			</main>
 
 	
 </body>
