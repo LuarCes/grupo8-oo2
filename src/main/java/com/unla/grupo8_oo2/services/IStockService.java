@@ -16,4 +16,5 @@ public interface IStockService {
 	//public boolean remove(int id);
 	public Stock insertOrUpdate(Stock stock);
 	public abstract Stock findByProducto(Producto producto);
+	public abstract List<Stock> traerMayoresACero();
 }

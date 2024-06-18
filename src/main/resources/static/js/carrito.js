@@ -16,11 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     return;
                 }
             }
-
+			
+			
+			
             const nuevoItem = document.createElement("div");
             nuevoItem.classList.add("carrito-item");
             nuevoItem.dataset.precio = precio; // Almacenamos el precio como un atributo de dataset
-
+	
             nuevoItem.innerHTML = `
                 <div class="carrito-item-detalles">
                     <span class="carrito-item-titulo">${titulo}</span>

@@ -62,5 +62,10 @@ public class StockService implements IStockService {
 		return stockRepository.findByProducto(producto);
 	}
 
+	@Override
+	public List<Stock> traerMayoresACero() {
+		return stockRepository.traerMayoresACero();
+	}
+
 	
 }
