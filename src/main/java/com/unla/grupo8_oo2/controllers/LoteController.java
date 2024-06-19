@@ -43,10 +43,10 @@ public class LoteController {
 		
 		ModelAndView mav = new ModelAndView();
 
-        // Obtener la información de autenticación del contexto de seguridad
+        // Obtiene la información de autenticación del contexto de seguridad
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         
-        // Verificar si el usuario tiene el rol ROLE_ADMIN
+        // Verifica si el usuario tiene el rol ROLE_ADMIN
         boolean isAdmin = auth != null && auth.getAuthorities().stream()
                 .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
 

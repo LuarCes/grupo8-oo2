@@ -18,7 +18,6 @@ public class ItemService implements IItemService{
         this.itemRepository = itemRepository;
     }
 	
-	
 	@Override
 	public Optional<Item> findItemById(int id) {
 		return itemRepository.findItemById(id);

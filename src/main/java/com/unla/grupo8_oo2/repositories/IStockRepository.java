@@ -15,14 +15,10 @@ import com.unla.grupo8_oo2.entities.Stock;
 public interface IStockRepository extends JpaRepository<Stock, Serializable>{
 	
 	public abstract Optional<Stock> findById(int id);
-	//public abstract List<Stock> findByProductos(Producto producto);
 	public abstract Stock findByProducto(Producto producto);
 	public abstract List<Stock> findAll();
 	
 	@Query("SELECT s FROM Stock s WHERE s.stockActual > 0")
 	public abstract List<Stock> traerMayoresACero();
-
-	//@Query("SELECT c FROM Carrito c JOIN FETCH c.user u WHERE u.usernombre= (:nombre)")
-	//Optional<Carrito> findByUser(String nombre);
 	
 }

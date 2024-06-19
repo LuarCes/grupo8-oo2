@@ -26,29 +26,6 @@ public class UserService implements UserDetailsService {
 	public UserService(IUserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-
-	/*
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		com.unla.grupo8_oo2.entities.User user = userRepository.findByUsernameAndFetchUserRolesEagerly(username);
-		return buildUser(user, buildGrantedAuthorities(user.getUserRoles()));
-	}
-
-	private User buildUser(com.unla.grupo8_oo2.entities.User user, List<GrantedAuthority> grantedAuthorities) {
-		return new User(user.getUsername(), user.getPassword(), user.isEnabled(),
-						true, true, true, //accountNonExpired, credentialsNonExpired, accountNonLocked,
-						grantedAuthorities);
-	}
-
-	private List<GrantedAuthority> buildGrantedAuthorities(Set<UserRole> userRoles) {
-		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-		for(UserRole userRole: userRoles) {
-			grantedAuthorities.add(new SimpleGrantedAuthority(userRole.getRole()));
-		}
-		return new ArrayList<>(grantedAuthorities);
-	}
-	
-	*/
 	
 	public List<com.unla.grupo8_oo2.entities.User> findUsers() {
 		List<com.unla.grupo8_oo2.entities.User> users = new ArrayList<com.unla.grupo8_oo2.entities.User>();

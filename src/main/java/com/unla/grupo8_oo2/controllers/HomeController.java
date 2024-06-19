@@ -18,7 +18,6 @@ import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 @RequestMapping("/")
 public class HomeController {
 
-	//GET Example: SERVER/index
 	@GetMapping("/index")
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.INDEX);
@@ -26,7 +25,6 @@ public class HomeController {
 		return modelAndView;
 	}
 
-	//GET Example: SERVER/hello?name=someName
 	@GetMapping("/hello")
 	public ModelAndView helloParams1(@RequestParam(name="name", required=false, defaultValue="null") String name) {
 		ModelAndView mV = new ModelAndView(ViewRouteHelper.HELLO);
@@ -34,7 +32,6 @@ public class HomeController {
 		return mV;
 	}
 
-	//GET Example: SERVER/hello/someName
 	@GetMapping("/hello/{name}")
 	public ModelAndView helloParams2(@PathVariable("name") String name) {
 		ModelAndView mV = new ModelAndView(ViewRouteHelper.HELLO);

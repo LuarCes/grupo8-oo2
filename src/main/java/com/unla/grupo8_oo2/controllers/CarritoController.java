@@ -60,7 +60,7 @@ public class CarritoController {
 		mAV.addObject("headerPragma", "no-cache");
 		mAV.addObject("headerExpires", "0");
 		System.out.println("ENTRE AL CARRITO");
-		//System.out.println(lstItem);
+
 		mAV.addObject("stock", stockService.traerMayoresACero());
 		mAV.addObject("lstItem", lstItem);
 		return mAV;
@@ -103,10 +103,8 @@ public class CarritoController {
 				lstItem.add(item);
 			}
 
-			System.out.println("Producto agregado al carrito");
 			redirectAttributes.addFlashAttribute("message", "Producto agregado al carrito");
 		} else {
-			System.out.println("Producto no encontrado");
 			redirectAttributes.addFlashAttribute("error", "Producto no encontrado");
 		}
 
@@ -116,9 +114,6 @@ public class CarritoController {
 	@PostMapping("/eliminar/{id}")
 	@ResponseBody
 	public ResponseEntity<String> eliminarItem(@PathVariable("id") int itemId, RedirectAttributes redirectAttributes) {
-		System.out.println("ENTRE AL ELIMINAR");
-		System.out.println("Ítem con id " + itemId + " a eliminar");
-
 		// Busco un item por su ID
 		Item itemToRemove = null;
 		for (Item item : lstItem) {
@@ -130,8 +125,6 @@ public class CarritoController {
 
 		if (itemToRemove != null) {
 			lstItem.remove(itemToRemove);
-			System.out.println(lstItem);
-			System.out.println("Producto eliminado del carrito");
 			redirectAttributes.addFlashAttribute("message", "Producto eliminado del carrito");
 			return ResponseEntity.ok("Producto eliminado del carrito");
 		}
@@ -141,7 +134,6 @@ public class CarritoController {
 
 	@PostMapping("/create")
 	public RedirectView create(RedirectAttributes redirectAttributes) {
-		System.out.println("/ESTOY DENTRO DEL CREATE");
 		System.out.println(lstItem);
 
 
@@ -178,10 +170,6 @@ public class CarritoController {
 	        stockService.insertOrUpdate(auxStock);
 	    }
 		lstItem = new HashSet<Item>();
-			
-		
-
-		System.out.println("CREE UN CARRITO NUEVO");
 
 		redirectAttributes.addFlashAttribute("message", "Compra finalizada con éxito.");
 		return new RedirectView(ViewRouteHelper.CARRITO_ROOT);

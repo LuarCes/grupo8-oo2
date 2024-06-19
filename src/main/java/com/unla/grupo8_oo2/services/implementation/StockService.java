@@ -22,40 +22,19 @@ public class StockService implements IStockService {
 		return stockRepository.findAll();
 	}
 
-	
-	//REVISAR
 	@Override
 	public Optional<Stock> findById(int id) throws Exception {
 		  try {
 	            return stockRepository.findById(id);
 	        } catch (Exception e) {
-	            // Manejar la excepción según las necesidades de tu aplicación
-	            throw new Exception("Error fetching stock with id: " + id, e);
+	            throw new Exception("Error de fetching stock con id: " + id, e);
 	        }
 	}
 
-	
 	@Override
 	public Stock insertOrUpdate(Stock stock) {
 		return stockRepository.save(stock);
 	}
-	/*
-	@Override
-	public List<Stock> findByProducto(Producto producto) throws Exception {
-		return stockRepository.findByProducto(producto);
-	}
-
-
-	@Override
-	public boolean remove(int id) {
-		try {
-			stockRepository.deleteById(id);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	*/
 
 	@Override
 	public List<Stock> traerMayoresACero() {

@@ -10,17 +10,13 @@ import com.unla.grupo8_oo2.entities.User;
 
 public interface ICarritoService {
 	public List<Carrito> getAll();
-	//public Optional<Carrito> findById(int id) throws Exception;
+
 	public Carrito insertOrUpdate(List<Item> lstItem, String username);
 	public void addItemToCarrito(Carrito carrito, Item item);
 	public Carrito createCarrito(String username);
-	
-	//public boolean remove(int id);
+
 	public Optional<Carrito> findByUser(User user);
 	public void insertOrUpdate(Carrito carrito);
-
-	
-	//public abstract List<Carrito> findByFecha(LocalDate fecha);
 	
 }
 

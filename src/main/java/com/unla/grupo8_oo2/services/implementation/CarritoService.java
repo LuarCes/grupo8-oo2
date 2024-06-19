@@ -49,11 +49,11 @@ public class CarritoService implements ICarritoService {
 
 	@Transactional
 	public Carrito insertOrUpdate(List<Item> lstItem, String username) {
-		//Set<Item> setItem = new  HashSet<>(lstItem);
+
 		User user = userRepository.findByUsername(username);
 		Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), user);
 		for (Item item : lstItem) {
-	        item.setCarrito(carrito);  // Establecer la relaciÃ³n bidireccional
+	        item.setCarrito(carrito);
 	        carrito.getLstItem().add(item);
 	    }
 		
@@ -74,7 +74,6 @@ public class CarritoService implements ICarritoService {
 	 	
 	    @Transactional
 	    public void addItemToCarrito(Carrito carrito, Item item) {
-	    	//Carrito carrito = findByFechaAndHora(fecha, hora);
 	        item.setCarrito(carrito);
 	        carrito.getLstItem().add(item);
 	        itemRepository.save(item);
@@ -83,7 +82,6 @@ public class CarritoService implements ICarritoService {
 
 		@Override
 		public Optional<Carrito> findByUser(User user) {
-			// TODO Auto-generated method stub
 			return Optional.empty();
 		}
 
