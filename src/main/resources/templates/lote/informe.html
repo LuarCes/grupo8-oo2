@@ -93,14 +93,16 @@
 			        <div class="eleccion-fechas">
 			            <p>Producto:</p>
 			            <select name="productoId" id="productoId">
-			                <option th:each="producto : ${productos}" th:value="${producto.id}"
-			                        th:text="${producto.nombre}">...</option>
+			                <option value="">Seleccione un producto</option>
+			                <!-- Iterar sobre la lista de productos y mostrar opciones -->
+			                <th:block th:each="producto : ${productos}">
+			                    <option th:value="${producto.id}" th:text="${producto.nombre}"></option>
+			                </th:block>
 			            </select>
 			        </div>
 			    </div>
 			    <button type="submit" class="boton-buscar">Buscar</button>
 			</form>
-
 			<div class="rtado-fechas">
 				<h2>Resultados de la Búsqueda:</h2>
 				<table border="1px">
@@ -125,11 +127,6 @@
 						</tr>
 					</tbody>
 				</table>
-
-
-
-
-
 
 			</div>
 		</div>

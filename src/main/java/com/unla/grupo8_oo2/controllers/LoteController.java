@@ -3,6 +3,7 @@ package com.unla.grupo8_oo2.controllers;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.Authentication;
@@ -64,9 +65,9 @@ public class LoteController {
 
 	@GetMapping("/new")
 	public ModelAndView create() {
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.LOTE_NEW);
-		mAV.addObject("lote", new Lote());
-		return mAV;
+	    ModelAndView mAV = new ModelAndView(ViewRouteHelper.LOTE_NEW);
+	    mAV.addObject("lote", new Lote());
+	    return mAV;
 	}
 
 	@GetMapping("{id}")
@@ -97,24 +98,26 @@ public class LoteController {
 	}
 
 	@GetMapping("/informe")
-	public ModelAndView informe() {
-		
-		ModelAndView mav = new ModelAndView();
+    public ModelAndView informe() {
+
+        ModelAndView mav = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        
+
         boolean isAdmin = auth != null && auth.getAuthorities().stream()
                 .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
 
         if (isAdmin) {
             mav.setViewName(ViewRouteHelper.INFORME);
             mav.addObject("lotes",loteService.getAll());
+            mav.addObject("productos",productoService.getAll());
         } else {
             mav.setView(new RedirectView(ViewRouteHelper.NOT_ADMIN));
         }
 
         return mav;
 
-	}
+    }
+
 
 	@GetMapping("/consulta-fechas")
 	public ModelAndView consultaFechas(
@@ -134,16 +137,17 @@ public class LoteController {
 		mAV.addObject("lotes", lotes);
 		return mAV;
 	}
-	
+
 	@GetMapping("/consulta-por-producto")
-	public ModelAndView consultaPorProducto(@RequestParam("productoId") int productoId) throws Exception {
-		 ModelAndView mAV = new ModelAndView(ViewRouteHelper.INFORME); // Actualiza con la ruta correcta
-		    
-		    // Aquí se consulta el servicio de lotes para obtener los lotes asociados al producto seleccionado
-		    List<Lote> lotes = loteService.findByProductoId(productoId);
-		    
-		    mAV.addObject("lotes", lotes);
-		    return mAV;
+	public ModelAndView consultarPorProducto(@RequestParam("productoId") int productoId) {
+	    List<Lote> lotes = loteService.findByProductoId(productoId);
+	    
+	    ModelAndView mav = new ModelAndView(ViewRouteHelper.INFORME); 
+	    
+	    mav.addObject("lotes", lotes);
+	    mav.addObject("productos", productoService.getAll());
+	    
+	    return mav;
 	}
 
 }
