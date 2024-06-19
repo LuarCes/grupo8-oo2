@@ -1,7 +1,5 @@
 package com.unla.grupo8_oo2.services;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +16,9 @@ public interface ICarritoService {
 	public Carrito createCarrito(String username);
 	
 	//public boolean remove(int id);
+	public Optional<Carrito> findByUser(User user);
+	public void insertOrUpdate(Carrito carrito);
+
 	
 	//public abstract List<Carrito> findByFecha(LocalDate fecha);
 	

@@ -5,13 +5,10 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
 import org.springframework.stereotype.Service;
 
 import com.unla.grupo8_oo2.entities.Carrito;
 import com.unla.grupo8_oo2.entities.Item;
-import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.User;
 import com.unla.grupo8_oo2.repositories.ICarritoRepository;
 import com.unla.grupo8_oo2.repositories.IItemRepository;
@@ -56,7 +53,7 @@ public class CarritoService implements ICarritoService {
 		User user = userRepository.findByUsername(username);
 		Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), user);
 		for (Item item : lstItem) {
-	        item.setCarrito(carrito);  // Establecer la relación bidireccional
+	        item.setCarrito(carrito);  // Establecer la relaciÃ³n bidireccional
 	        carrito.getLstItem().add(item);
 	    }
 		
@@ -84,9 +81,16 @@ public class CarritoService implements ICarritoService {
 	        carritoRepository.save(carrito);
 	    }
 
+		@Override
+		public Optional<Carrito> findByUser(User user) {
+			// TODO Auto-generated method stub
+			return Optional.empty();
+		}
 
-		
-	
-	
+		@Override
+		public void insertOrUpdate(Carrito carrito) {
+			// TODO Auto-generated method stub
+			
+		}
 	
 }

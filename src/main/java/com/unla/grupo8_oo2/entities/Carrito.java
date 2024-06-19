@@ -17,7 +17,6 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -48,6 +47,7 @@ public class Carrito {
     @JoinColumn(name = "usuario_id", nullable = false)
     private User user;
 
+
 	
 	public Carrito(LocalDate fecha, LocalTime hora, User cliente) {
 		this.fecha = fecha;
@@ -65,7 +65,7 @@ public class Carrito {
 
 	@Override
 	public String toString() {
-		return "Carrito [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", lstItem=" + lstItem+ ", user=" + user
+		return "Carrito [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", lstItem=" + lstItem+ ", user="
 				+ "]";
 	}
 	
