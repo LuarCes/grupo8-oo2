@@ -62,12 +62,6 @@ public class LoteController {
 		
 	}
 
-	@GetMapping("/new")
-	public ModelAndView create() {
-	    ModelAndView mAV = new ModelAndView(ViewRouteHelper.LOTE_NEW);
-	    mAV.addObject("lote", new Lote());
-	    return mAV;
-	}
 
 	@GetMapping("{id}")
 	public ModelAndView get(@PathVariable("id") int id) throws Exception {
