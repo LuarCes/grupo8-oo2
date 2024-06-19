@@ -47,8 +47,10 @@ public class PedidoAprovController {
     public ModelAndView pedidosAprov() {
 		
 		ModelAndView mav = new ModelAndView();
+		// Obteniene la información de autenticación del contexto de seguridad
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    
+        
+        // Verifica si el usuario tiene el rol ROLE_ADMIN
         boolean isAdmin = auth != null && auth.getAuthorities().stream()
                 .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
 
@@ -88,7 +90,7 @@ public class PedidoAprovController {
         pedidoAprov.setTotal(total);
         pedidoAprov.setProducto(producto);
         pedidoAprov.setProveedor(proveedor);
-        System.out.println(pedidoAprov);
+        
         pedidoAprovService.insertOrUpdate(pedidoAprov);
         
         return new RedirectView(ViewRouteHelper.APROV_ROOT);
