@@ -75,8 +75,7 @@ public class PedidoAprovController {
                 .collect(Collectors.toList()));
         return mAV;
     }
-
-    //FALTA TRAER LOS PROVEEDORES
+	
     @PostMapping("/create")
     public RedirectView create(@ModelAttribute("pedidoAprov") PedidoAprov pedidoAprov,
             @ModelAttribute("proveedor") Proveedor proveedor,
