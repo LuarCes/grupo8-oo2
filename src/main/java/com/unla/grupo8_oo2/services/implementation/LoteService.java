@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.unla.grupo8_oo2.entities.Lote;
@@ -16,7 +15,6 @@ import com.unla.grupo8_oo2.services.ILoteService;
 public class LoteService implements ILoteService {
 	private final ILoteRepository loteRepository;
 
-    @Autowired
     public LoteService(ILoteRepository loteRepository) {
         this.loteRepository = loteRepository;
     }

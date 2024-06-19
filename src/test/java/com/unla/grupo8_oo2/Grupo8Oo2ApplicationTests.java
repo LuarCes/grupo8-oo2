@@ -1,23 +1,12 @@
 package com.unla.grupo8_oo2;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.unla.grupo8_oo2.entities.Carrito;
-import com.unla.grupo8_oo2.entities.User;
 import com.unla.grupo8_oo2.repositories.ICarritoRepository;
 import com.unla.grupo8_oo2.services.implementation.CarritoService;
 

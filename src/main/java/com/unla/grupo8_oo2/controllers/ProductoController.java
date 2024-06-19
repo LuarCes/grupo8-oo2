@@ -1,6 +1,5 @@
 package com.unla.grupo8_oo2.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.core.Authentication;
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.unla.grupo8_oo2.entities.Producto;
 import com.unla.grupo8_oo2.entities.Stock;
-import com.unla.grupo8_oo2.helpers.UserUtil;
 import com.unla.grupo8_oo2.helpers.ViewRouteHelper;
 import com.unla.grupo8_oo2.services.IProductoService;
 import com.unla.grupo8_oo2.services.IStockService;
