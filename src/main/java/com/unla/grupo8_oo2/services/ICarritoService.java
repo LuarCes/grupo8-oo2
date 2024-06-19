@@ -1,10 +1,5 @@
 package com.unla.grupo8_oo2.services;
 
-<<<<<<< HEAD
-=======
-import java.time.LocalDate;
-import java.time.LocalTime;
->>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
 import java.util.List;
 import java.util.Optional;
 

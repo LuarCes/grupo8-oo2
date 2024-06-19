@@ -45,12 +45,13 @@
 				<li><a th:href="@{/lote}">Lotes</a></li>
 				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
 				<li><a th:href="@{/stock}">Stock</a></li>
+				<li><a th:href="@{/lote/informe}">Informe</a></li>
 			</ul>
 		</nav>
 
 	</header>
 
-	<main>
+	<main id="aprov_new_main">
 		<form action="#" th:action="@{/pedidosAprov/create}" th:object="${pedidoAprov}" method="post">
 
 			<div>

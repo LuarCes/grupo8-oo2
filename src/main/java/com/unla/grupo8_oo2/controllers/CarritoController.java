@@ -2,9 +2,7 @@ package com.unla.grupo8_oo2.controllers;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -145,7 +143,7 @@ public class CarritoController {
 	public RedirectView create(RedirectAttributes redirectAttributes) {
 		System.out.println("/ESTOY DENTRO DEL CREATE");
 		System.out.println(lstItem);
-<<<<<<< HEAD
+
 
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userService.findUserByUsername(username);
@@ -164,7 +162,7 @@ public class CarritoController {
 		}
 
 		carritoService.insertOrUpdate(carrito);
-=======
+
 		Producto auxProducto = null;
 		Stock auxStock = null;
 		int stockActu=0;
@@ -179,10 +177,10 @@ public class CarritoController {
 	        auxStock.setStockActual(stockActu);
 	        stockService.insertOrUpdate(auxStock);
 	    }
-		lstItem = new ArrayList<Item>();
+		lstItem = new HashSet<Item>();
 			
 		
->>>>>>> 108d1b2970ba631202709a17812d3b37c66354fd
+
 		System.out.println("CREE UN CARRITO NUEVO");
 
 		redirectAttributes.addFlashAttribute("message", "Compra finalizada con éxito.");
