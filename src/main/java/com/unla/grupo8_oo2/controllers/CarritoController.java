@@ -59,7 +59,6 @@ public class CarritoController {
 		mAV.addObject("headerCacheControl", "no-cache, no-store, must-revalidate");
 		mAV.addObject("headerPragma", "no-cache");
 		mAV.addObject("headerExpires", "0");
-		System.out.println("ENTRE AL CARRITO");
 
 		mAV.addObject("stock", stockService.traerMayoresACero());
 		mAV.addObject("lstItem", lstItem);
@@ -162,7 +161,6 @@ public class CarritoController {
 		
 		 // Añadir cada item al carrito recuperado
 	    for (Item item : lstItem) {
-
 	        auxProducto= item.getProducto();
 	        auxStock= stockService.findByProducto(auxProducto);
 	        stockActu=auxStock.getStockActual()-item.getCantidad();
